@@ -1,0 +1,38 @@
+{
+  "name": "week02-react-basics",
+  "version": "1.0.0",
+  "description": "react basics examples",
+  "main": "main.js",
+  "scripts": {
+    "start": "node_modules/.bin/webpack-dev-server --port=30025 --mode=development",
+    "build": "node_modules/.bin/webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pittman8/isit322-pittman-2019.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Hannah Pittman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pittman8/isit322-pittman-2019/issues"
+  },
+  "homepage": "https://github.com/pittman8/isit322-pittman-2019#readme",
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "webpack-dev-server": "^3.2.1"
+  }
+}
