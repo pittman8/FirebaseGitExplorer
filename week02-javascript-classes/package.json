@@ -1,0 +1,28 @@
+{
+  "name": "week02-javascript-classes",
+  "version": "1.0.0",
+  "description": "Class",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pittman8/isit322-pittman-2019.git"
+  },
+  "keywords": [
+    "javascript",
+    "class",
+    "require"
+  ],
+  "author": "Hannah Pittman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pittman8/isit322-pittman-2019/issues"
+  },
+  "homepage": "https://github.com/pittman8/isit322-pittman-2019#readme",
+  "dependencies": {
+    "jest": "^24.7.1"
+  }
+}
