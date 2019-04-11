@@ -62,3 +62,9 @@ typings/
 
 bundle.js
 *.js.map
+
+# etc
+.idea
+.vscode
+.c9
+
