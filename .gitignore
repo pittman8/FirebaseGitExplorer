@@ -65,3 +65,5 @@ bundle.js
 
 # Other
 .idea
+.vscode
+.c9
