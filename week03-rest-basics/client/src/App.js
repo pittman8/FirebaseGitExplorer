@@ -7,14 +7,16 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            file: 'File name will be placed here.',
-            status: 'waiting for server'
+            file: 'unknown',
+            status: 'unknown',
+            result: 'unknown',
+            server: 'unknown'
         };
     }
 
-    queryServer = () => {
+    queryServer = (event) => {
         const that = this;
-        fetch('/api/foo')
+        fetch(event.target.dataset.url)
             .then(function(response) {
                 return response.json();
             })
@@ -30,17 +32,21 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-            <div className="App-header">
-            <img src={logo} className="App-logo" alt="logo"/>
-            <h2>Welcome to React</h2>
-        </div>
+                <div className="App-header">
+                    <img src={logo} className="App-logo" alt="logo"/>
+                    <h2>Welcome to React</h2>
+                </div>
 
-        <p className="App-intro">
-            state: {this.state.status} file: {this.state.file}
-    </p>
-        <button onClick={this.queryServer}>Bar</button>
+                <p className="App-intro">
+                    state: {this.state.status} file: {this.state.file}
+                </p>
+                <p className="App-intro">
+                    result: {this.state.result} server: {this.state.server}
+                </p>
+                <button data-url="/api/foo" onClick={this.queryServer}>Test Foo Route</button>
+                <button data-url="/qux-you-rang" onClick={this.queryServer}>Qux You Rang</button>
             </div>
-    );
+        );
     }
 }
 

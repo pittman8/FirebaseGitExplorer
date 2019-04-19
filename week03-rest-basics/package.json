@@ -8,8 +8,9 @@
     "express": "4.15.3"
   },
   "scripts": {
-    "start": "concurrently 'npm run server' 'npm run client'",
-    "server": "babel-node server/bin/www",
+    "start": "concurrently 'npm run server' 'npm run qux' 'npm run client'",
+    "server": "nodemon server/bin/www",
+    "qux": "nodemon qux/bin/www",
     "client": "babel-node start-client.js",
     "lint": "eslint ."
   },
