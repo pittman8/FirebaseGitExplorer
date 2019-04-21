@@ -7,14 +7,35 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            file: 'File name will be placed here.',
-            status: 'waiting for server'
+            file: 'unknown',
+            status: 'unknown',
+            result: 'unknown',
+            server: 'unknown',
+            login: 'unknown',
+            id: 'unknown',
+            node_id: 'unknown',
+            name: 'unknown'
         };
     }
 
-    queryServer = () => {
+    queryServer = (event) => {
         const that = this;
-        fetch('/api/foo')
+        fetch(event.target.dataset.url)
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                console.log('parsed json', json);
+                that.setState(foo => (json));
+            })
+            .catch(function(ex) {
+                console.log('parsing failed, URL bad, network down, or similar', ex);
+            });
+    };
+
+    queryGitHub = () => {
+        const that = this;
+        fetch('https://api.github.com/users/pittman8')
             .then(function(response) {
                 return response.json();
             })
@@ -30,17 +51,38 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-            <div className="App-header">
-            <img src={logo} className="App-logo" alt="logo"/>
-            <h2>Welcome to React</h2>
-        </div>
+                <div className="App-header">
+                    <img src={logo} className="App-logo" alt="logo"/>
+                    <h2>Welcome to React</h2>
+                </div>
 
-        <p className="App-intro">
-            state: {this.state.status} file: {this.state.file}
-    </p>
-        <button onClick={this.queryServer}>Bar</button>
+                <p className="App-intro">
+                    state: {this.state.status} file: {this.state.file}
+                </p>
+                <p className="App-intro">
+                    result: {this.state.result} server: {this.state.server}
+                </p>
+
+                <button data-url="/api/foo" onClick={this.queryServer}>Test Foo Route</button>
+                <button data-url="/qux-you-rang" onClick={this.queryServer}>Qux You Rang</button>
+                <button data-url="/git-gist-you-rang" onClick={this.queryServer}>Git Gist You Rang</button>
+                <button data-url="/git-user-you-rang" onClick={this.queryServer}>Git User You Rang</button>
+                <p className="App-intro">
+                    login: {this.state.login}
+                </p>
+                <p className="App-intro">
+                    id: {this.state.id}
+                </p>
+                <p className="App-intro">
+                    node_id: {this.state.node_id}
+                </p>
+                <p className="App-intro">
+                    name: {this.state.name}
+                </p>
+                <button data-url="/git-user-get-user" onClick={this.queryGitHub}>Get User</button>
+
             </div>
-    );
+        );
     }
 }
 
