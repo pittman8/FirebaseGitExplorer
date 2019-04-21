@@ -12,7 +12,9 @@ class App extends Component {
             result: 'unknown',
             server: 'unknown',
             login: 'unknown',
-            id: 'unknown'
+            id: 'unknown',
+            node_id: 'unknown',
+            name: 'unknown'
         };
     }
 
@@ -33,7 +35,7 @@ class App extends Component {
 
     queryGitHub = () => {
         const that = this;
-        fetch('/git-user-get-user')
+        fetch('https://api.github.com/users/pittman8')
             .then(function(response) {
                 return response.json();
             })
@@ -71,7 +73,13 @@ class App extends Component {
                 <p className="App-intro">
                     id: {this.state.id}
                 </p>
-                <button data-url="/git-user-get-user" onClick={this.queryGitHub}>Git User Get User</button>
+                <p className="App-intro">
+                    node_id: {this.state.node_id}
+                </p>
+                <p className="App-intro">
+                    name: {this.state.name}
+                </p>
+                <button data-url="/git-user-get-user" onClick={this.queryGitHub}>Get User</button>
 
             </div>
         );

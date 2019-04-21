@@ -14,7 +14,7 @@ router.get('/git-user-you-rang', (request, response) => {
 });
 
 router.get('/git-user-get-user', (request, response) => {
-    response.send({'login': 'pittman8', 'id': '26732311', server: 'git-user'});
+    response.send({"login": "pittman8", "id": "26732311", server: 'git-user'});
 });
 
 module.exports = router;
