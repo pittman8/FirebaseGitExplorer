@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
+import logo from '../logo.svg';
 import './App.css';
 import 'whatwg-fetch';
+import {Qux} from "./Qux";
+import {GitGist} from "./GitGist";
+import {TestRoutes} from "./TestRoutes";
+import {GitUserGetUser, GitUserYouRang} from "./GitUser";
 
 class App extends Component {
     constructor() {
@@ -63,10 +67,11 @@ class App extends Component {
                     result: {this.state.result} server: {this.state.server}
                 </p>
 
-                <button data-url="/api/foo" onClick={this.queryServer}>Test Foo Route</button>
-                <button data-url="/qux-you-rang" onClick={this.queryServer}>Qux You Rang</button>
-                <button data-url="/git-gist-you-rang" onClick={this.queryServer}>Git Gist You Rang</button>
-                <button data-url="/git-user-you-rang" onClick={this.queryServer}>Git User You Rang</button>
+                <TestRoutes queryServer={this.queryServer}/>
+                <Qux queryServer={this.queryServer}/>
+                <GitGist queryServer={this.queryServer}/>
+                <GitUserYouRang queryServer={this.queryServer}/>
+
                 <p className="App-intro">
                     login: {this.state.login}
                 </p>
@@ -79,8 +84,7 @@ class App extends Component {
                 <p className="App-intro">
                     name: {this.state.name}
                 </p>
-                <button data-url="/git-user-get-user" onClick={this.queryGitHub}>Get User</button>
-
+                <GitUserGetUser queryGitHub={this.queryGitHub}/>
             </div>
         );
     }

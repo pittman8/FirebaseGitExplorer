@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "babel-cli": "6.24.0",
-    "babel-core": "6.24.0",
-    "express": "4.15.3"
+    "babel-cli": "6.26.0",
+    "babel-core": "6.26.3",
+    "express": "4.16.4"
   },
   "scripts": {
     "start": "concurrently 'npm run server' 'npm run qux' 'npm run git-gist' 'npm run git-user' 'npm run client'",
@@ -17,12 +17,12 @@
     "lint": "eslint ."
   },
   "devDependencies": {
-    "babel-eslint": "^9.0.0",
-    "concurrently": "^3.4.0",
-    "eslint": "^5.12.0",
-    "eslint-config-google": "^0.7.1",
-    "eslint-plugin-import": "2.3.0",
-    "eslint-plugin-jsx-a11y": "5.0.3",
-    "eslint-plugin-react": "6.9.0"
+    "babel-eslint": "^10.0.1",
+    "concurrently": "^4.1.0",
+    "eslint": "^5.16.0",
+    "eslint-config-google": "^0.12.0",
+    "eslint-plugin-import": "2.17.2",
+    "eslint-plugin-jsx-a11y": "6.2.1",
+    "eslint-plugin-react": "7.12.4"
   }
 }
