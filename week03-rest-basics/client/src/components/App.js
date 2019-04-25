@@ -1,25 +1,17 @@
 import React, {Component} from 'react';
-import logo from '../logo.svg';
-import './App.css';
+import PropTypes from 'prop-types';
+import '../css/App.css';
 import 'whatwg-fetch';
 import {Qux} from "./Qux";
 import {GitGist} from "./GitGist";
 import {TestRoutes} from "./TestRoutes";
 import {GitUserGetUser, GitUserYouRang} from "./GitUser";
+import Header from "./Header";
 
 class App extends Component {
-    constructor() {
-        super();
-        this.state = {
-            file: 'unknown',
-            status: 'unknown',
-            result: 'unknown',
-            server: 'unknown',
-            login: 'unknown',
-            id: 'unknown',
-            node_id: 'unknown',
-            name: 'unknown'
-        };
+    constructor(props) {
+        super(props);
+        this.state = props.appInit
     }
 
     queryServer = (event) => {
@@ -55,11 +47,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <div className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <h2>Welcome to React</h2>
-                </div>
-
+                <Header />
                 <p className="App-intro">
                     state: {this.state.status} file: {this.state.file}
                 </p>
@@ -89,5 +77,10 @@ class App extends Component {
         );
     }
 }
+
+App.propTypes = {
+    queryServer: PropTypes.func,
+    queryGitHub: PropTypes.func
+};
 
 export default App;
