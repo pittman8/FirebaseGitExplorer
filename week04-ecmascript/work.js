@@ -30,7 +30,7 @@ const charlie = {
     zip: '98007'
 }
 
-const displayAddress = (charlie) => {
+const address = (charlie) => {
     for(let property in charlie) {
         if(charlie.hasOwnProperty(property)) {
             console.log(property + ": " + charlie[property]);
@@ -38,7 +38,7 @@ const displayAddress = (charlie) => {
     }
 };
 
-displayAddress(charlie);
+address(charlie);
 
 // ES6 Class
 class Calculator {
