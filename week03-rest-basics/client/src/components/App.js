@@ -1,21 +1,17 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
-import './App.css';
+import PropTypes from 'prop-types';
+import '../css/App.css';
 import 'whatwg-fetch';
+import {Qux} from "./Qux";
+import {GitGist} from "./GitGist";
+import {TestRoutes} from "./TestRoutes";
+import {GitUserGetUser, GitUserYouRang} from "./GitUser";
+import Header from "./Header";
 
 class App extends Component {
-    constructor() {
-        super();
-        this.state = {
-            file: 'unknown',
-            status: 'unknown',
-            result: 'unknown',
-            server: 'unknown',
-            login: 'unknown',
-            id: 'unknown',
-            node_id: 'unknown',
-            name: 'unknown'
-        };
+    constructor(props) {
+        super(props);
+        this.state = props.appInit
     }
 
     queryServer = (event) => {
@@ -51,11 +47,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <div className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <h2>Welcome to React</h2>
-                </div>
-
+                <Header />
                 <p className="App-intro">
                     state: {this.state.status} file: {this.state.file}
                 </p>
@@ -63,10 +55,11 @@ class App extends Component {
                     result: {this.state.result} server: {this.state.server}
                 </p>
 
-                <button data-url="/api/foo" onClick={this.queryServer}>Test Foo Route</button>
-                <button data-url="/qux-you-rang" onClick={this.queryServer}>Qux You Rang</button>
-                <button data-url="/git-gist-you-rang" onClick={this.queryServer}>Git Gist You Rang</button>
-                <button data-url="/git-user-you-rang" onClick={this.queryServer}>Git User You Rang</button>
+                <TestRoutes queryServer={this.queryServer}/>
+                <Qux queryServer={this.queryServer}/>
+                <GitGist queryServer={this.queryServer}/>
+                <GitUserYouRang queryServer={this.queryServer}/>
+
                 <p className="App-intro">
                     login: {this.state.login}
                 </p>
@@ -79,11 +72,15 @@ class App extends Component {
                 <p className="App-intro">
                     name: {this.state.name}
                 </p>
-                <button data-url="/git-user-get-user" onClick={this.queryGitHub}>Get User</button>
-
+                <GitUserGetUser queryGitHub={this.queryGitHub}/>
             </div>
         );
     }
 }
+
+App.propTypes = {
+    queryServer: PropTypes.func,
+    queryGitHub: PropTypes.func
+};
 
 export default App;
