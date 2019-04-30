@@ -1,35 +1,38 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../css/App.css';
 import 'whatwg-fetch';
-import {Qux} from "./Qux";
-import {GitGist} from "./GitGist";
-import {TestRoutes} from "./TestRoutes";
-import {GitUser} from "./GitUser";
-import Header from "./Header";
+import { Qux } from './Qux';
+import { GitGist } from './GitGist';
+import { TestRoutes } from './TestRoutes';
+import { GitUser } from './GitUser';
+import Header from './Header';
 
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = props.appInit
+        this.state = props.appInit;
     }
 
-    queryServer = (event) => {
+    queryServer = event => {
         const that = this;
 
         fetch(event.target.dataset.url)
-            .then(function (response) {
+            .then(function(response) {
                 return response.json();
             })
-            .then(function (json) {
+            .then(function(json) {
                 console.log('parsed json', json);
                 if (json.body) {
                     json.body = JSON.parse(json.body);
                 }
-                that.setState(foo => (json));
+                that.setState(foo => json);
             })
-            .catch(function (ex) {
-                console.log('parsing failed, URL bad, network down, or similar', ex);
+            .catch(function(ex) {
+                console.log(
+                    'parsing failed, URL bad, network down, or similar',
+                    ex
+                );
             });
     };
 
@@ -38,19 +41,22 @@ class App extends Component {
             <div className="App">
                 <Header />
                 <div className="App-intro">
-                    <p>state: {this.state.status} file: {this.state.file}</p>
-                    <p>result: {this.state.result} server: {this.state.server}</p>
+                    <p>
+                        state: {this.state.status} file: {this.state.file}
+                    </p>
+                    <p>
+                        result: {this.state.result} server: {this.state.server}
+                    </p>
                     <p>login: {this.state.body.login}</p>
                     <p>id: {this.state.body.id}</p>
                     <p>node_id: {this.state.body.node_id}</p>
                     <p>name: {this.state.body.name}</p>
                 </div>
 
-                <TestRoutes queryServer={this.queryServer}/>
-                <Qux queryServer={this.queryServer}/>
-                <GitGist queryServer={this.queryServer}/>
-                <GitUser queryServer={this.queryServer}/>
-
+                <TestRoutes queryServer={this.queryServer} />
+                <Qux queryServer={this.queryServer} />
+                <GitGist queryServer={this.queryServer} />
+                <GitUser queryServer={this.queryServer} />
             </div>
         );
     }

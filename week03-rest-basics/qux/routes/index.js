@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/qux-you-rang', (request, response) => {
-    response.send({'result': 'you rang', server: 'qux'});
+    response.send({ result: 'you rang', server: 'qux' });
 });
 
 module.exports = router;

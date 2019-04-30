@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/git-gist-you-rang', (request, response) => {
-    response.send({'result': 'you rang', server: 'git-gist'});
+    response.send({ result: 'you rang', server: 'git-gist' });
 });
 
 module.exports = router;
