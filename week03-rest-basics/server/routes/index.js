@@ -19,4 +19,8 @@ router.get('/git-user-you-rang', function(request, response, next) {
     requester('http://localhost:30028/git-user-you-rang').pipe(response);
 });
 
+router.get('/git-user-get-user', function(request, response, next) {
+    requester('http://localhost:30028/git-user-get-user').pipe(response);
+});
+
 module.exports = router;
