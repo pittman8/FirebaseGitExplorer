@@ -64,6 +64,6 @@ bundle.js
 *.js.map
 
 # Other
-.idea
+.idea/
 .vscode
 .c9
