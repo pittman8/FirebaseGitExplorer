@@ -11,7 +11,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/git-user-you-rang', (request, response) => {
-    response.send({'result': 'you rang', server: 'git-user'});
+    response.send({ result: 'you rang', server: 'git-user' });
 });
 
 router.get('/git-user-get-user', (req, res) => {

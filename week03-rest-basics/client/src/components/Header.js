@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from "../images/watermelon.svg";
+import logo from '../images/watermelon.svg';
 import '../css/App.css';
 
 class Header extends Component {
@@ -7,9 +7,9 @@ class Header extends Component {
         return (
             <div className="App">
                 <h1 className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
+                    <img src={logo} className="App-logo" alt="logo" />
                 </h1>
-                <h2 className = "App-header">Welcome to React</h2>
+                <h2 className="App-header">Welcome to React</h2>
             </div>
         );
     }
