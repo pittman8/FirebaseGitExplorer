@@ -8,5 +8,8 @@ export const appInit = {
         id: 'unknown',
         node_id: 'unknown',
         name: 'unknown'
+    },
+    gistList: {
+        id: 'unknown'
     }
 };

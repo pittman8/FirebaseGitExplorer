@@ -36,6 +36,25 @@ class App extends Component {
             });
     };
 
+    fetchGistList = event => {
+        const that = this;
+
+        fetch(event.target.dataset.url)
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                console.log('parsed json', json);
+                that.setState(foo => json.result[0]);
+            })
+            .catch(function(ex) {
+                console.log(
+                    'parsing failed, URL bad, network down, or similar',
+                    ex
+                );
+            });
+    };
+
     render() {
         return (
             <div className="App">
@@ -55,7 +74,9 @@ class App extends Component {
 
                 <TestRoutes queryServer={this.queryServer} />
                 <Qux queryServer={this.queryServer} />
-                <GitGist queryServer={this.queryServer} />
+                <GitGist queryServer={this.queryServer}
+                         fetchGistList={this.fetchGistList}
+                         gistList={this.state.gistList}/>
                 <GitUser queryServer={this.queryServer} />
             </div>
         );
