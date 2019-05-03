@@ -16,6 +16,10 @@ router.get('/git-gist-you-rang', function(request, response) {
     requester('http://localhost:30029/git-gist-you-rang').pipe(response);
 });
 
+router.get('/git-gist-get-gist-list', function(request, response) {
+    requester('http://localhost:30029/git-gist-get-gist-list').pipe(response);
+});
+
 router.get('/git-user-you-rang', function(request, response) {
     requester('http://localhost:30028/git-user-you-rang').pipe(response);
 });
@@ -23,5 +27,6 @@ router.get('/git-user-you-rang', function(request, response) {
 router.get('/git-user-get-user', function(request, response) {
     requester('http://localhost:30028/git-user-get-user').pipe(response);
 });
+
 
 module.exports = router;
