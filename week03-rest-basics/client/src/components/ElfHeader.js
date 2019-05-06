@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from '../images/watermelon.svg';
 import '../css/App.css';
 
-class Header extends Component {
+class ElfHeader extends Component {
     render() {
         return (
             <div className="App">
@@ -15,4 +15,4 @@ class Header extends Component {
     }
 }
 
-export default Header;
+export default ElfHeader;

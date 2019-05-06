@@ -1,17 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import '../css/App.css';
-import 'whatwg-fetch';
-import { Qux } from './Qux';
-import { GetGist } from './GetGist';
-import { TestRoutes } from './TestRoutes';
-import { GetUser } from './GetUser';
-import ElfHeader from './ElfHeader';
 
-class App extends Component {
+class GetGist extends React.Component {
     constructor(props) {
         super(props);
-        this.state = props.appInit;
+        this.state = {
+            result: 'bar'
+        };
     }
 
     queryServer = event => {
@@ -56,35 +51,19 @@ class App extends Component {
     };
 
     render() {
-        return (
-            <div className="App">
-                <ElfHeader />
-                <div className="App-intro">
-                    <p>
-                        state: {this.state.status} file: {this.state.file}
-                    </p>
-                    <p>
-                        result: {this.state.result} server: {this.state.server}
-                    </p>
-                    <p>login: {this.state.body.login}</p>
-                    <p>id: {this.state.body.id}</p>
-                    <p>node_id: {this.state.body.node_id}</p>
-                    <p>name: {this.state.body.name}</p>
-                </div>
-
-                <TestRoutes queryServer={this.queryServer} />
-                <Qux queryServer={this.queryServer} />
-                <GetGist queryServer={this.queryServer}
-                         fetchGistList={this.fetchGistList}
-                         gistList={this.state.gistList}/>
-                <GetUser queryServer={this.queryServer} />
+        return(
+            <div>
+                <p>ID: {gistList.id}</p>
+                <button data-url="/git-gist-you-rang" onClick={this.queryServer}>Ring GitGist</button>
+                <button data-url="/git-gist-get-gist-list" onClick={this.fetchGistList}>Get Gist List</button>
             </div>
         );
     }
+
 }
 
-App.propTypes = {
+GetGist.propTypes = {
     queryServer: PropTypes.func
 };
 
-export default App;
+export default GetGist;

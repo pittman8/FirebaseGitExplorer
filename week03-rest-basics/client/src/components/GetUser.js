@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const GitUser = ({ queryServer }) => (
+export const GetUser = ({ queryServer }) => (
     <div className="Component">
         <button data-url="/git-user-you-rang" onClick={queryServer}>
-            Ring Git User
+            Ring Get User
         </button>
         <button data-url="/git-user-get-user" onClick={queryServer}>
             Get User
@@ -12,6 +12,6 @@ export const GitUser = ({ queryServer }) => (
     </div>
 );
 
-GitUser.propTypes = {
+GetUser.propTypes = {
     queryServer: PropTypes.func
 };
