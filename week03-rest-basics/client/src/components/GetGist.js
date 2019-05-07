@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { appInit } from './app-init';
+import '../css/App.css';
+import '../css/Component.css';
 
 export class GetGist extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            gistList: this.props.gistList,
             index: 0,
         };
     }
