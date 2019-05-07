@@ -71,13 +71,16 @@ class App extends Component {
                     <p>node_id: {this.state.body.node_id}</p>
                     <p>name: {this.state.body.name}</p>
                 </div>
-
                 <TestRoutes queryServer={this.queryServer} />
                 <Qux queryServer={this.queryServer} />
-                <GetGist queryServer={this.queryServer}
-                         fetchGistList={this.fetchGistList}
-                         gistList={this.state.gistList}/>
                 <GetUser queryServer={this.queryServer} />
+                <br/>
+                <div>
+                    <GetGist queryServer={this.queryServer}
+                             fetchGistList={this.fetchGistList}
+                             gistList={this.state.gistList}
+                    />
+                </div>
             </div>
         );
     }

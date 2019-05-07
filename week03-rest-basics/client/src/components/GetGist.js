@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { appInit } from './app-init';
 
-class GetGist extends React.Component {
+export class GetGist extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            result: 'bar'
+            index: 0,
         };
     }
 
@@ -50,12 +51,27 @@ class GetGist extends React.Component {
             });
     };
 
+    setGistList = event => {
+
+    };
+
     render() {
         return(
-            <div>
-                <p>ID: {gistList.id}</p>
-                <button data-url="/git-gist-you-rang" onClick={this.queryServer}>Ring GitGist</button>
-                <button data-url="/git-gist-get-gist-list" onClick={this.fetchGistList}>Get Gist List</button>
+            <div className="App">
+                <h1 className="App-header">Get Gist Component</h1>
+                <br/>
+                <div className="App-intro">
+                    <p>
+                        result: {appInit.result}
+                    </p>
+                    <p>
+                        gistID: {appInit.gistList[0].id}
+                    </p>
+                    <button data-url="/git-gist-you-rang" onClick={this.queryServer}>Ring GitGist</button>
+                    <button data-url="/git-gist-get-gist-list" onClick={this.fetchGistList}>Get Gist List</button>
+                    <button onClick={this.setGistList}>Prev</button>
+                    <button onClick={this.setGistList}>Next</button>
+                </div>
             </div>
         );
     }
@@ -65,5 +81,3 @@ class GetGist extends React.Component {
 GetGist.propTypes = {
     queryServer: PropTypes.func
 };
-
-export default GetGist;

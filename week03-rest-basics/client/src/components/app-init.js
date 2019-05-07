@@ -9,7 +9,5 @@ export const appInit = {
         node_id: 'unknown',
         name: 'unknown'
     },
-    gistList: {
-        id: 'unknown'
-    }
+    gistList: [{id: 'unknown1'}, {id: 'unknown2'}]
 };
