@@ -1,62 +1,36 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { appInit } from './app-init';
 import '../css/App.css';
-import '../css/Component.css';
 
 export class GetGist extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            result: this.props.result,
             gistList: this.props.gistList,
             index: 0,
         };
     }
 
-    queryServer = event => {
-        const that = this;
-
-        fetch(event.target.dataset.url)
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(json) {
-                console.log('parsed json', json);
-                if (json.body) {
-                    json.body = JSON.parse(json.body);
-                }
-                that.setState(foo => json);
-            })
-            .catch(function(ex) {
-                console.log(
-                    'parsing failed, URL bad, network down, or similar',
-                    ex
-                );
-            });
-    };
-
-    fetchGistList = event => {
-        const that = this;
-
-        fetch(event.target.dataset.url)
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(json) {
-                console.log('parsed json', json);
-                that.setState(foo => json.result[0]);
-            })
-            .catch(function(ex) {
-                console.log(
-                    'parsing failed, URL bad, network down, or similar',
-                    ex
-                );
-            });
-    };
-
-    setGistList = event => {
-
-    };
+    changeIndex = (x) => {
+        let index = this.state.index;
+        let nextIndex = index;
+        let first = this.state.gistList.length;
+        if (x===0) {
+            if (index===0) {
+                nextIndex = first;
+            } else {
+                nextIndex--};
+        } else if (x===1) {
+            if (index===first) {
+                nextIndex='0';
+            } else {
+                nextIndex++};
+        } else {
+            console.log("Out of bounds");
+        };
+        this.setData('index', nextIndex);
+    }
 
     render() {
         return(
@@ -65,15 +39,27 @@ export class GetGist extends Component {
                 <br/>
                 <div className="App-intro">
                     <p>
-                        result: {appInit.result}
+                        result: {this.state.result}
                     </p>
                     <p>
-                        gistID: {appInit.gistList[0].id}
+                        gistID: {this.state.gistList[0].id}
                     </p>
-                    <button data-url="/git-gist-you-rang" onClick={this.queryServer}>Ring GitGist</button>
-                    <button data-url="/git-gist-get-gist-list" onClick={this.fetchGistList}>Get Gist List</button>
-                    <button onClick={this.setGistList}>Prev</button>
-                    <button onClick={this.setGistList}>Next</button>
+                    <button data-url="/git-gist-you-rang" onClick={this.props.queryServer}>Ring GitGist</button>
+                    <button data-url="/git-gist-get-gist-list" onClick={this.props.fetchGistList}>Fetch Gist List</button>
+                    <button
+                        id="prev"
+                        onClick={event =>
+                            this.changeIndex(0, this.changeIndex, event)
+                        }>
+                        Prev
+                    </button>
+                    <button
+                        id="next"
+                        onClick={event =>
+                            this.changeIndex(1, this.changeIndex, event)
+                        }>
+                        Next
+                    </button>
                 </div>
             </div>
         );

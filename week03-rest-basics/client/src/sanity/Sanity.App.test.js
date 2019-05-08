@@ -18,17 +18,17 @@ describe('App Tests', () => {
         ReactDOM.unmountComponentAtNode(div);
     });
 
-    // it('includes the method setData', () => {
-    //     const wrapper = shallow(<App appInit={appInit}/>);
-    //     expect(wrapper.instance().setData).toBeDefined();
-    //     expect(wrapper.instance().setGistList).toBeDefined();
-    //     expect(wrapper.instance().queryServer).toBeDefined();
-    // });
-    //
-    // it('includes the method setGistList', () => {
-    //     const wrapper = shallow(<App appInit={appInit}/>);
-    //     expect(wrapper.instance().setGistList).toBeDefined();
-    // });
+    it('includes the method setData', () => {
+        const wrapper = shallow(<App appInit={appInit}/>);
+        expect(wrapper.instance().setData).toBeDefined();
+        expect(wrapper.instance().setGistList).toBeDefined();
+        expect(wrapper.instance().queryServer).toBeDefined();
+    });
+
+    it('includes the method setGistList', () => {
+        const wrapper = shallow(<App appInit={appInit}/>);
+        expect(wrapper.instance().setGistList).toBeDefined();
+    });
 
     it('includes the method fetchGistList', () => {
         const wrapper = shallow(<App appInit={appInit}/>);

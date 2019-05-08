@@ -36,6 +36,24 @@ class App extends Component {
             });
     };
 
+    setData = (json) => {
+        console.log('parsed json', json);
+        this.setState(json);
+    };
+
+    setGistList = (url, setData, event) => {
+        fetch(url)
+            .then(function (response) {
+                return response.json();
+            })
+            .then((json) => {
+                setData(json)
+            })
+            .catch(function (ex) {
+                console.log('parsing failed, URL bad, network down, or similar', ex);
+            });
+    };
+
     fetchGistList = event => {
         const that = this;
 
