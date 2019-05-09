@@ -36,22 +36,11 @@ class App extends Component {
             });
     };
 
-    setData = (json) => {
+    setGistList = (json) => {
         console.log('parsed json', json);
-        this.setState(json);
-    };
-
-    setGistList = (url, setData, event) => {
-        fetch(url)
-            .then(function (response) {
-                return response.json();
-            })
-            .then((json) => {
-                setData(json)
-            })
-            .catch(function (ex) {
-                console.log('parsing failed, URL bad, network down, or similar', ex);
-            });
+        this.setState(foo => {
+            return {gistList: json.result}
+        });
     };
 
     fetchGistList = event => {
@@ -62,8 +51,7 @@ class App extends Component {
                 return response.json();
             })
             .then(function(json) {
-                console.log('parsed json', json);
-                that.setState(foo => json.result[0]);
+                that.setGistList(json)
             })
             .catch(function(ex) {
                 console.log(

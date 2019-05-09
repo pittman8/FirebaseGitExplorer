@@ -6,8 +6,6 @@ export class GetGist extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            result: this.props.result,
-            gistList: this.props.gistList,
             index: 0,
         };
     }
@@ -15,7 +13,7 @@ export class GetGist extends Component {
     changeIndex = (x) => {
         let index = this.state.index;
         let nextIndex = index;
-        let first = this.state.gistList.length;
+        let first = this.props.gistList.length;
         if (x===0) {
             if (index===0) {
                 nextIndex = first;
@@ -29,7 +27,7 @@ export class GetGist extends Component {
         } else {
             console.log("Out of bounds");
         };
-        this.setData('index', nextIndex);
+        this.setState({index: nextIndex});
     }
 
     render() {
@@ -39,10 +37,10 @@ export class GetGist extends Component {
                 <br/>
                 <div className="App-intro">
                     <p>
-                        result: {this.state.result}
+                        result: {this.props.result}
                     </p>
                     <p>
-                        gistID: {this.state.gistList[0].id}
+                        gistID: {this.props.gistList[0].id}
                     </p>
                     <button data-url="/git-gist-you-rang" onClick={this.props.queryServer}>Ring GitGist</button>
                     <button data-url="/git-gist-get-gist-list" onClick={this.props.fetchGistList}>Fetch Gist List</button>
