@@ -14,11 +14,4 @@ describe('ElfHeader Tests', () => {
         ReactDOM.render(<ElfHeader />, div);
         ReactDOM.unmountComponentAtNode(div);
     });
-
-    it('renders and reads H2 text', () => {
-        const wrapper = shallow(<ElfHeader />);
-        const welcome = <h2 className="App-header">Welcome to React</h2>;
-        elfDebugEnzyme.getLast(wrapper, 'h2', true);
-        expect(wrapper.contains(welcome)).toEqual(true);
-    });
 });

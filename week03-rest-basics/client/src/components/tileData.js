@@ -43,12 +43,5 @@ export const demoItems = (
             </ListItemIcon>
             <ListItemText primary="Test Routes" />
         </ListItemLink>
-
-        <ListItemLink button component="a" href="/api-foo">
-            <ListItemIcon>
-                <DraftsIcon />
-            </ListItemIcon>
-            <ListItemText primary="API Foo" />
-        </ListItemLink>
     </div>
 );

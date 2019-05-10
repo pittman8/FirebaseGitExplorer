@@ -10,7 +10,7 @@ export class GetGist extends Component {
         };
     }
 
-    changeIndex = (x) => {
+    setData = (x) => {
         let index = this.state.index;
         let nextIndex = index;
         let first = this.props.gistList.length - 1;
@@ -30,13 +30,6 @@ export class GetGist extends Component {
         this.setState({index: nextIndex});
     }
 
-    // setData = offset => {
-    //     const value = this.state.index + offset;
-    //     if (value >= 0 && value <= this.props.gistList.length - 1) {
-    //         this.setState({ index: value });
-    //     }
-    // };
-
     render() {
         return(
             <div className="App">
@@ -44,21 +37,21 @@ export class GetGist extends Component {
                 <br/>
                 <div className="App-intro">
                     <p>
-                        gistID: {this.props.gistList[0].id}
+                        gistID: {this.props.gistList[this.state.index].id}
                     </p>
                     <button data-url="/git-gist-you-rang" onClick={this.props.queryServer}>Ring GitGist</button>
                     <button data-url="/git-gist-get-gist-list" onClick={this.props.fetchGistList}>Fetch Gist List</button>
                     <button
                         id="prev"
                         onClick={event =>
-                            this.changeIndex(0, this.changeIndex, event)
+                            this.setData(0, this.setData(), event)
                         }>
                         Prev
                     </button>
                     <button
                         id="next"
                         onClick={event =>
-                            this.changeIndex(1, this.changeIndex, event)
+                            this.setData(1, this.setData, event)
                         }>
                         Next
                     </button>
