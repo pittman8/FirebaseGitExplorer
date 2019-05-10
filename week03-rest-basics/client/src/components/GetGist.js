@@ -13,22 +13,29 @@ export class GetGist extends Component {
     changeIndex = (x) => {
         let index = this.state.index;
         let nextIndex = index;
-        let first = this.props.gistList.length;
+        let first = this.props.gistList.length - 1;
         if (x===0) {
-            if (index===0) {
-                nextIndex = first;
+            if (index!==0) {
+                nextIndex = nextIndex - 1;
             } else {
-                nextIndex--};
+                nextIndex = first};
+
         } else if (x===1) {
-            if (index===first) {
-                nextIndex='0';
+            if (index!==first) {
+                nextIndex=nextIndex + 1;
             } else {
-                nextIndex++};
-        } else {
-            console.log("Out of bounds");
+                nextIndex = 0};
         };
+
         this.setState({index: nextIndex});
     }
+
+    // setData = offset => {
+    //     const value = this.state.index + offset;
+    //     if (value >= 0 && value <= this.props.gistList.length - 1) {
+    //         this.setState({ index: value });
+    //     }
+    // };
 
     render() {
         return(
@@ -36,9 +43,6 @@ export class GetGist extends Component {
                 <h1 className="App-header">Get Gist Component</h1>
                 <br/>
                 <div className="App-intro">
-                    <p>
-                        result: {this.props.result}
-                    </p>
                     <p>
                         gistID: {this.props.gistList[0].id}
                     </p>

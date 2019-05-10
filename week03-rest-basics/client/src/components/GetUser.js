@@ -1,8 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const GetUser = ({ queryServer }) => (
-    <div className="Component">
+export const GetUser = ({ queryServer, body }) => (
+    <div className="App-intro">
+        <p>login: {body.login}</p>
+        <p>id: {body.id}</p>
+        <p>node_id: {body.node_id}</p>
+        <p>name: {body.name}</p>
+
         <button data-url="/git-user-you-rang" onClick={queryServer}>
             Ring Get User
         </button>

@@ -7,6 +7,7 @@ import { GetGist } from './GetGist';
 import { TestRoutes } from './TestRoutes';
 import { GetUser } from './GetUser';
 import ElfHeader from './ElfHeader';
+import {BrowserRouter, Route} from "react-router-dom";
 
 class App extends Component {
     constructor(props) {
@@ -63,31 +64,55 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App">
-                <ElfHeader />
-                <div className="App-intro">
-                    <p>
-                        state: {this.state.status} file: {this.state.file}
-                    </p>
-                    <p>
-                        result: {this.state.result} server: {this.state.server}
-                    </p>
-                    <p>login: {this.state.body.login}</p>
-                    <p>id: {this.state.body.id}</p>
-                    <p>node_id: {this.state.body.node_id}</p>
-                    <p>name: {this.state.body.name}</p>
-                </div>
-                <TestRoutes queryServer={this.queryServer} />
-                <Qux queryServer={this.queryServer} />
-                <GetUser queryServer={this.queryServer} />
-                <br/>
-                <div>
-                    <GetGist queryServer={this.queryServer}
-                             fetchGistList={this.fetchGistList}
-                             gistList={this.state.gistList}
+            <BrowserRouter>
+                <div className="App">
+                    <ElfHeader />
+                    <h1>Git Explorer</h1>
+                    <div className="App-intro">
+                        <p>
+                            state: {this.state.status} file: {this.state.file}
+                        </p>
+                        <p>
+                            result: {this.state.result} server: {this.state.server}
+                        </p>
+                    </div>
+
+                    <Route
+                        path="/test-routes"
+                        render={(props)=> (
+                            <TestRoutes {...props}
+                                 queryServer={this.queryServer} />
+                        )}
+                    />
+
+                    <Route
+                        path="/qux"
+                        render={(props)=> (
+                            <Qux {...props}
+                                queryServer={this.queryServer} />
+                        )}
+                    />
+
+                    <Route
+                        path="/get-user"
+                        render={(props)=> (
+                            <GetUser {...props}
+                                 queryServer={this.queryServer}
+                                 body={this.state.body} />
+                        )}
+                    />
+
+                    <Route
+                        path="/get-gist"
+                        render={(props) => (
+                            <GetGist {...props}
+                                 queryServer={this.queryServer}
+                                 fetchGistList={this.fetchGistList}
+                                 gistList={this.state.gistList} />
+                        )}
                     />
                 </div>
-            </div>
+            </BrowserRouter>
         );
     }
 }
