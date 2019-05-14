@@ -25,19 +25,20 @@ export const gitItems = (
             </ListItemIcon>
             <ListItemText primary="Get Gist" />
         </ListItem>
+
     </div>
 );
 
 export const demoItems = (
     <div>
-        <ListItemLink button component={Link} href="/qux">
+        <ListItemLink button component={Link} to="/qux">
             <ListItemIcon>
                 <DraftsIcon />
             </ListItemIcon>
             <ListItemText primary="Qux" />
         </ListItemLink>
 
-        <ListItemLink button component={Link} href="/test-routes">
+        <ListItemLink button component={Link} to="/test-routes">
             <ListItemIcon>
                 <DraftsIcon />
             </ListItemIcon>

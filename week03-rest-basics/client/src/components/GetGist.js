@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Button from '@material-ui/core/Button';
 import '../css/App.css';
 
 export class GetGist extends Component {
@@ -37,24 +38,45 @@ export class GetGist extends Component {
                 <br/>
                 <div className="App-intro">
                     <p>
+                        description: {this.props.gistList[this.state.index].description}
+                        <br />
                         gistID: {this.props.gistList[this.state.index].id}
+                        <br />
+                        owner: {this.props.gistList[this.state.index].ownerLogin}
+
                     </p>
-                    <button data-url="/git-gist-you-rang" onClick={this.props.queryServer}>Ring GitGist</button>
-                    <button data-url="/git-gist-get-gist-list" onClick={this.props.fetchGistList}>Fetch Gist List</button>
-                    <button
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        data-url="/git-gist-you-rang"
+                        onClick={this.props.queryServer}>
+                        Ring Git Gist
+                    </Button>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        data-url="/git-gist-get-gist-list"
+                        onClick={this.props.fetchGistList}>
+                        Fetch Gist List
+                    </Button>
+                    <Button
                         id="prev"
+                        variant="contained"
+                        color="primary"
                         onClick={event =>
                             this.setData(0, this.setData(), event)
                         }>
                         Prev
-                    </button>
-                    <button
+                    </Button>
+                    <Button
                         id="next"
+                        variant="contained"
+                        color="primary"
                         onClick={event =>
-                            this.setData(1, this.setData, event)
+                            this.setData(1, this.setData(), event)
                         }>
                         Next
-                    </button>
+                    </Button>
                 </div>
             </div>
         );
@@ -63,5 +85,7 @@ export class GetGist extends Component {
 }
 
 GetGist.propTypes = {
-    queryServer: PropTypes.func
+    setData: PropTypes.func,
+    queryServer: PropTypes.func,
+    fetchGistList: PropTypes.func,
 };

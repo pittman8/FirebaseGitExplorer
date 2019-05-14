@@ -10,7 +10,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
 import { gitItems, demoItems } from './tileData';
-
+import logo from '../images/watermelon.svg';
+import '../css/App.css';
 
 const styles = {
     root: {
@@ -57,11 +58,17 @@ const ElfHeader = ({classes}) => {
                             variant="h6"
                             color="inherit"
                             className={classes.flex}
+                            align="center"
                         >
                             GitExplorer
                         </Typography>
+
                     </Toolbar>
                 </AppBar>
+                <div className="App-header">
+                    <div className="App-logo"><img src={logo} alt="watermelon" width="100"/></div>
+                    <h1>Git Explorer</h1>
+                </div>
                 <Drawer open={open} onClose={() => {}}>
                     <div
                         role="button"

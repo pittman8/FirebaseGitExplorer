@@ -18,7 +18,7 @@ class App extends Component {
     queryServer = event => {
         const that = this;
 
-        fetch(event.target.dataset.url)
+        fetch(event.currentTarget.dataset.url)
             .then(function(response) {
                 return response.json();
             })
@@ -47,7 +47,7 @@ class App extends Component {
     fetchGistList = event => {
         const that = this;
 
-        fetch(event.target.dataset.url)
+        fetch(event.currentTarget.dataset.url)
             .then(function(response) {
                 return response.json();
             })
@@ -67,7 +67,6 @@ class App extends Component {
             <BrowserRouter>
                 <div className="App">
                     <ElfHeader />
-                    <h1>Git Explorer</h1>
                     <div className="App-intro">
                         <p>
                             state: {this.state.status} file: {this.state.file}
@@ -118,7 +117,9 @@ class App extends Component {
 }
 
 App.propTypes = {
-    queryServer: PropTypes.func
+    queryServer: PropTypes.func,
+    fetchGistList: PropTypes.func,
+    setGistList: PropTypes.func
 };
 
 export default App;
