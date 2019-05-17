@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@octokit/rest": "^16.25.6",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.3",
     "enzyme-adapter-react-16": "^1.12.1",

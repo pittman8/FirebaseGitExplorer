@@ -63,6 +63,31 @@ class App extends Component {
             });
     };
 
+    setRepoList = (json) => {
+        console.log('parsed json', json);
+        this.setState(foo => {
+            return {repoList: json.result}
+        });
+    };
+
+    fetchRepoList = event => {
+        const that = this;
+
+        fetch(event.currentTarget.dataset.url)
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                that.setRepoList(json)
+            })
+            .catch(function(ex) {
+                console.log(
+                    'parsing failed, URL bad, network down, or similar',
+                    ex
+                );
+            });
+    };
+
     render() {
         return (
             <BrowserRouter>
@@ -106,7 +131,9 @@ class App extends Component {
                         path="/get-user-repos"
                         render={(props)=> (
                             <GetRepos {...props}
-                                     queryServer={this.queryServer} />
+                                     queryServer={this.queryServer}
+                                     fetchRepoList={this.fetchRepoList}
+                                     repoList={this.state.repoList}/>
                         )}
                     />
 
@@ -128,7 +155,9 @@ class App extends Component {
 App.propTypes = {
     queryServer: PropTypes.func,
     fetchGistList: PropTypes.func,
-    setGistList: PropTypes.func
+    setGistList: PropTypes.func,
+    setRepoList: PropTypes.func,
+    fetchRepoList: PropTypes.func
 };
 
 export default App;

@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const requester = require('request');
+const Octokit = require('@octokit/rest');
+const octokit = new Octokit();
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -35,7 +37,18 @@ router.get('/git-user-get-user', (req, res) => {
 });
 
 router.get('/git-user-get-user-repos', (request, response) => {
-    response.send({ result: 'you rang', server: 'git-user' });
+    // octokit.authenticate({
+    //     type: 'token',
+    //     username: 'pittman8',
+    //     token: 'f55ec32610be4a2fcb392fce65d331df24a8f5d7'
+    // });
+    //
+    // octokit.repos.list({
+    //     org: 'octokit',
+    //     type: 'public'
+    // }).then(response => {
+        response.send({ result: 'you rang', server: 'git-user' });
+    //});
 });
 
 module.exports = router;
