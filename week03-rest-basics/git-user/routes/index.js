@@ -31,6 +31,11 @@ router.get('/git-user-get-user', (req, res) => {
         console.log('body:', body);
         res.send({ error: error, response: response, body: body });
     });
+
+});
+
+router.get('/git-user-get-user-repos', (request, response) => {
+    response.send({ result: 'you rang', server: 'git-user' });
 });
 
 module.exports = router;

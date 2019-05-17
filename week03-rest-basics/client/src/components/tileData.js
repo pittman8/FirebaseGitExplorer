@@ -17,7 +17,13 @@ export const gitItems = (
             <ListItemIcon>
                 <InboxIcon />
             </ListItemIcon>
-            <ListItemText primary="Get User" />
+            <ListItemText primary="Get User Info" />
+        </ListItem>
+        <ListItem button component={Link} to="/get-user-repos">
+            <ListItemIcon>
+                <InboxIcon />
+            </ListItemIcon>
+            <ListItemText primary="Get Repos" />
         </ListItem>
         <ListItem button component={Link} to="/get-gist">
             <ListItemIcon>

@@ -6,6 +6,7 @@ import { Qux } from './Qux';
 import { GetGist } from './GetGist';
 import { TestRoutes } from './TestRoutes';
 import { GetUser } from './GetUser';
+import { GetRepos } from './GetRepos';
 import ElfHeader from './ElfHeader';
 import {BrowserRouter, Route} from "react-router-dom";
 
@@ -98,6 +99,14 @@ class App extends Component {
                             <GetUser {...props}
                                  queryServer={this.queryServer}
                                  body={this.state.body} />
+                        )}
+                    />
+
+                    <Route
+                        path="/get-user-repos"
+                        render={(props)=> (
+                            <GetRepos {...props}
+                                     queryServer={this.queryServer} />
                         )}
                     />
 
