@@ -6,7 +6,7 @@ import { Qux } from './Qux';
 import { GetGist } from './GetGist';
 import { TestRoutes } from './TestRoutes';
 import { GetUser } from './GetUser';
-import { GetRepos } from './GetRepos';
+import GetRepos from './GetRepos';
 import ElfHeader from './ElfHeader';
 import {BrowserRouter, Route} from "react-router-dom";
 
