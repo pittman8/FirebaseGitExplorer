@@ -124,7 +124,7 @@ class GetRepos extends Component {
                             variant="contained"
                             color="primary"
                             className={classes.button}
-                            onClick={this.handlePrivate }
+                            onClick={this.handlePrivate}
                         >
                             Private
                         </Button>
@@ -133,7 +133,7 @@ class GetRepos extends Component {
                             variant="contained"
                             color="primary"
                             className={classes.button}
-                            onClick={this.handlePublic }
+                            onClick={this.handlePublic}
                         >
                             Public
                         </Button>
