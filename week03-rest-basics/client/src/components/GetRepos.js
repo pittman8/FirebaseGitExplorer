@@ -78,8 +78,8 @@ class GetRepos extends Component {
                         <p>name: {this.props.repoList[this.state.index].name}</p>
                         <p>full name: {this.props.repoList[this.state.index].full_name}</p>
                         <p>html_url: {this.props.repoList[this.state.index].html_url}</p>
-                        <p>owner login: {this.props.repoList[this.state.index].ownerLogin}</p>
-                        <p>owner url: {this.props.repoList[this.state.index].ownerUrl}</p>
+                        <p>owner login: {this.props.repoList[this.state.index].owner.login}</p>
+                        <p>owner url: {this.props.repoList[this.state.index].owner.url}</p>
 
                         <Button
                             id="prev"
@@ -130,8 +130,7 @@ class GetRepos extends Component {
                             variant="contained"
                             color="primary"
                             className={classes.button}
-                            // onClick={event =>
-                            //     this.setData(1, this.setData(), event)}
+                            onClick={this.props.fetchRepoList}
                         >
                             All
                         </Button>
@@ -144,7 +143,8 @@ class GetRepos extends Component {
 
 GetRepos.propTypes = {
     queryServer: PropTypes.func,
-    classes: PropTypes.object.isRequired
+    classes: PropTypes.object.isRequired,
+    fetchRepoList: PropTypes.func
 };
 
 export default withStyles(styles)(GetRepos);

@@ -65,15 +65,64 @@ class App extends Component {
 
     setRepoList = (json) => {
         console.log('parsed json', json);
+
+        const privateList = [];
+        const publicList = [];let i = 0;
+        for (i = 0; i < json.result.length; i++) {
+            if(json.result[i].private === true) {
+                privateList.push(json.result[i]);
+            } else {
+                publicList.push(json.result[i]);
+            }
+        }
+        console.log('private repos: ' + privateList);
+        console.log('public repos: ' + publicList);
+        console.log(privateList[0].private);
+
         this.setState(foo => {
             return {repoList: json.result}
         });
     };
 
+    // setRepoList = (json) => {
+    //     //private=true or private!= true
+    //     //based on button push
+    //     const that = this;
+    //     const privateList = [];
+    //     const publicList = [];
+    //
+    //     for (var i = 0; i < json.result.length; i++) {
+    //         if (json.result[i].private === true) {
+    //             privateList.push(json.result[i]);
+    //         } else {
+    //             publicList.push(json.result[i]);
+    //         }
+    //     }
+    //
+    //     this.setState(foo => {
+    //         privateList: privateList
+    //     })
+    //     this.setState(foo => {
+    //         publicList: publicList
+    //     })
+    //
+    //     publicOrPrivate = (private) => {
+    //         if (private == true) {
+    //             this.setState(foo => {
+    //                 that.repoList: privateList
+    //             })
+    //         } else {
+    //             this.setState(foo => {
+    //                 that.repoList: publicList
+    //             })
+    //         }
+    //     }
+    // }
+
     fetchRepoList = event => {
         const that = this;
 
-        fetch(event.currentTarget.dataset.url)
+        fetch('/git-user-get-user-repos')
             .then(function(response) {
                 return response.json();
             })

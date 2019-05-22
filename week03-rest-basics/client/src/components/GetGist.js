@@ -87,5 +87,5 @@ export class GetGist extends Component {
 GetGist.propTypes = {
     setData: PropTypes.func,
     queryServer: PropTypes.func,
-    fetchGistList: PropTypes.func,
+    fetchGistList: PropTypes.func
 };

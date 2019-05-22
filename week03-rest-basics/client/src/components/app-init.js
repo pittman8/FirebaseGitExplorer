@@ -14,15 +14,23 @@ export const appInit = {
         {id: 'unknown2', description: 'unknown2', ownerLogin: 'unknown2'}
     ],
     repoList : [
-        {name: 'unknown1',
-         full_name: "unknown1",
-         html_url: "unknown1",
-         ownerLogin: "unknown1",
-         ownerUrl: "unknown1"},
-        {name: 'unknown2',
-         full_name: "unknown2",
-         html_url: "unknown2",
-         ownerLogin: "unknown2",
-         ownerUrl: "unknown2"}
+        {
+            name: 'unknown1',
+            full_name: "unknown1",
+            html_url: "unknown1",
+            owner: {
+                login: "unknown1",
+                url: "unknown1"
+            }
+        },
+        {
+            name: 'unknown2',
+            full_name: "unknown2",
+            html_url: "unknown2",
+            owner: {
+                login: "unknown2",
+                url: "unknown2"
+            }
+        }
     ]
 };
