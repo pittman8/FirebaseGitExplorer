@@ -5,6 +5,13 @@ var GitHub = require('github-api');
 //const logger = new Logger('address', 'blue', 'yellow', '24px');
 const debug = require('debug')('gists');
 const token = require('./tokens');
+const Octokit = require('@octokit/rest');
+
+const myOctokit = new Octokit({
+    auth: 'f55ec32610be4a2fcb392fce65d331df24a8f5d7',
+    type: 'token',
+    username: 'pittman8'
+});
 
 let getGitHub = function() {
     let gh;
@@ -61,5 +68,18 @@ router.get('/git-gist-get-gist-list', function(request, response) {
             response.status(500).send({ result: err });
         });
 });
+
+router.get('/get-hidden-gists', (request, response) => {
+    response.send({ result: 'hi' });
+});
+
+router.get('/get-all-gists', (request, response) => {
+    myOctokit.gists.list({
+        per_page: 100
+    }).then(({ data }) => {
+        response.send({ result: data });
+    })
+});
+
 
 module.exports = router;

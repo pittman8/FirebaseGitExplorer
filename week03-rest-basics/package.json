@@ -3,7 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
     "@octokit/rest": "^16.25.6",
+    "babel": "^6.23.0",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.3",
     "enzyme-adapter-react-16": "^1.12.1",
@@ -17,9 +21,11 @@
     "git-gist": "nodemon git-gist/bin/www",
     "git-user": "nodemon git-user/bin/www",
     "client": "babel-node start-client.js",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "echo 'The project tests are not here. Navigate into project-sanity-tests and run npm test'"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
     "babel-eslint": "^10.0.1",
     "concurrently": "^4.1.0",
     "eslint": "^5.16.0",

@@ -4,18 +4,21 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "build": "node_modules/.bin/webpack"
+    "build": "node_modules/.bin/webpack",
+    "test": "jest"
   },
   "dependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@octokit/rest": "^16.26.0",
     "cookie-parser": "~1.4.4",
     "debug": "~4.1.1",
     "express": "~4.16.4",
     "github-api": "^3.2.0",
     "http-errors": "~1.7.2",
     "morgan": "~1.9.1",
-    "pug": "2.0.3"
+    "pug": "2.0.3",
+    "supertest": "^4.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
