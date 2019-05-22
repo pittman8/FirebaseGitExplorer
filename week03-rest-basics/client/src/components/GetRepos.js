@@ -48,7 +48,21 @@ class GetRepos extends Component {
         };
 
         this.setState({index: nextIndex});
-    }
+    };
+
+    handlePrivate = () => {
+        let isPrivate = this.props.repoList[this.state.index].private;
+        this.setState({ isPrivate: true },() => {
+            console.log(isPrivate);
+        });
+    };
+
+    handlePublic = () => {
+        let isPrivate = this.props.repoList[this.state.index].private;
+        console.log(isPrivate);
+        this.setState({ isPrivate: false },() => {
+        });
+    };
 
     render() {
         const { classes } = this.props;
@@ -80,6 +94,7 @@ class GetRepos extends Component {
                         <p>html_url: {this.props.repoList[this.state.index].html_url}</p>
                         <p>owner login: {this.props.repoList[this.state.index].owner.login}</p>
                         <p>owner url: {this.props.repoList[this.state.index].owner.url}</p>
+                        <p>private: {(this.props.repoList[this.state.index].private).toString()}</p>
 
                         <Button
                             id="prev"
@@ -109,9 +124,7 @@ class GetRepos extends Component {
                             variant="contained"
                             color="primary"
                             className={classes.button}
-                            // onClick={event =>
-                            //     this.setData(0, this.setData(), event)
-                            // }
+                            onClick={this.handlePrivate }
                         >
                             Private
                         </Button>
@@ -120,8 +133,7 @@ class GetRepos extends Component {
                             variant="contained"
                             color="primary"
                             className={classes.button}
-                            // onClick={event =>
-                            //     this.setData(1, this.setData(), event)}
+                            onClick={this.handlePublic }
                         >
                             Public
                         </Button>

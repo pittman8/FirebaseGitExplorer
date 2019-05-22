@@ -21,7 +21,8 @@ export const appInit = {
             owner: {
                 login: "unknown1",
                 url: "unknown1"
-            }
+            },
+            private: 'unknown1'
         },
         {
             name: 'unknown2',
@@ -30,7 +31,8 @@ export const appInit = {
             owner: {
                 login: "unknown2",
                 url: "unknown2"
-            }
+            },
+            private : 'unknown2'
         }
     ]
 };
