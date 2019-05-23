@@ -63,70 +63,45 @@ class App extends Component {
             });
     };
 
-    setRepoList = (json) => {
-        console.log('parsed json', json);
-
-        // let i = 0;
-        // for (i = 0; i < json.result.length; i++) {
-        //     if(json.result[i].private === true) {
-        //         privateList.push(json.result[i]);
-        //     } else {
-        //         publicList.push(json.result[i]);
-        //     }
-        // }
-        // console.log('private repos: ' + privateList);
-        // console.log('public repos: ' + publicList);
-        // console.log(privateList[0].private);
-
-        this.setState(foo => {
-            return {repoList: json.result}
+    setRepoList = (newRepoList) => {
+        console.log('retrieved repos: ', newRepoList);
+        this.setState({
+            repoList: newRepoList
         });
     };
 
-    // setRepoList = (json) => {
-    //     //private=true or private!= true
-    //     //based on button push
-    //     const that = this;
-    //     const privateList = [];
-    //     const publicList = [];
-    //
-    //     for (var i = 0; i < json.result.length; i++) {
-    //         if (json.result[i].private === true) {
-    //             privateList.push(json.result[i]);
-    //         } else {
-    //             publicList.push(json.result[i]);
-    //         }
-    //     }
-    //
-    //     this.setState(foo => {
-    //         privateList: privateList
-    //     })
-    //     this.setState(foo => {
-    //         publicList: publicList
-    //     })
-    //
-    //     publicOrPrivate = (private) => {
-    //         if (private == true) {
-    //             this.setState(foo => {
-    //                 that.repoList: privateList
-    //             })
-    //         } else {
-    //             this.setState(foo => {
-    //                 that.repoList: publicList
-    //             })
-    //         }
-    //     }
-    // }
-
     fetchRepoList = (event) => {
         const that = this;
-
+        let id = event.currentTarget.id;
+        let newRepoList = [];
+        console.log('fetchGistList()', id);
         fetch('/git-user-get-user-repos')
             .then(function(response) {
                 return response.json();
             })
             .then(function(json) {
-                that.setRepoList(json)
+                if(id === 'private') {
+                    // private repos
+                    console.log('These are private repos');
+                    for (let i = 0; i < json.result.length; i++) {
+                        if (json.result[i].private === true) {
+                            newRepoList.push(json.result[i]);
+                        }
+                    }
+                } else if (id === 'public') { // public repos
+                    console.log('These are public repos');
+                    for (let i = 0; i < json.result.length; i++) {
+                        if (json.result[i].private !== true) {
+                            newRepoList.push(json.result[i]);
+                        }
+                    }
+                } else { // all repos
+                    for (let i = 0; i < json.result.length; i++) {
+                        newRepoList.push(json.result[i]);
+                    }
+                }
+
+                that.setRepoList(newRepoList);
             })
             .catch(function(ex) {
                 console.log(

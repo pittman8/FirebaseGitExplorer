@@ -50,20 +50,6 @@ class GetRepos extends Component {
         this.setState({index: nextIndex});
     };
 
-    handlePrivate = () => {
-        let isPrivate = this.props.repoList[this.state.index].private;
-        this.setState({ isPrivate: true },() => {
-            console.log(isPrivate);
-        });
-    };
-
-    handlePublic = () => {
-        let isPrivate = this.props.repoList[this.state.index].private;
-        console.log(isPrivate);
-        this.setState({ isPrivate: false },() => {
-        });
-    };
-
     render() {
         const { classes } = this.props;
         return (
@@ -80,21 +66,21 @@ class GetRepos extends Component {
                     <br />
                     <Paper className={classes.paper}>
                         <Typography
-                            className={classes.typography}
-                            variant="h5"
                             gutterBottom
+                            variant="h5"
+                            className={classes.typography}
                         >
                             Get Repositories
                         </Typography>
                     </Paper>
 
                     <Paper className={classes.paper}>
-                        <p>name: {this.props.repoList[this.state.index].name}</p>
-                        <p>full name: {this.props.repoList[this.state.index].full_name}</p>
-                        <p>html_url: {this.props.repoList[this.state.index].html_url}</p>
-                        <p>owner login: {this.props.repoList[this.state.index].owner.login}</p>
-                        <p>owner url: {this.props.repoList[this.state.index].owner.url}</p>
-                        <p>private: {(this.props.repoList[this.state.index].private).toString()}</p>
+                        <Typography id="name" variant="h6"> name: {this.props.repoList[this.state.index].name} </Typography>
+                        <Typography id="full_name" variant="h6"> full name: {this.props.repoList[this.state.index].full_name} </Typography>
+                        <Typography id="html" variant="h6"> html_url: {this.props.repoList[this.state.index].html_url} </Typography>
+                        <Typography id="login" variant="h6"> owner login: {this.props.repoList[this.state.index].owner.login} </Typography>
+                        <Typography id="url" variant="h6"> owner url: {this.props.repoList[this.state.index].owner.url} </Typography>
+                        <Typography id="private" variant="h6"> private: {(this.props.repoList[this.state.index].private).toString()} </Typography>
 
                         <Button
                             id="prev"
@@ -124,7 +110,7 @@ class GetRepos extends Component {
                             variant="contained"
                             color="primary"
                             className={classes.button}
-                            onClick={this.handlePrivate}
+                            onClick={event => this.props.fetchRepoList(event)}
                         >
                             Private
                         </Button>
@@ -133,7 +119,7 @@ class GetRepos extends Component {
                             variant="contained"
                             color="primary"
                             className={classes.button}
-                            onClick={this.handlePublic}
+                            onClick={event => this.props.fetchRepoList(event)}
                         >
                             Public
                         </Button>
@@ -142,7 +128,7 @@ class GetRepos extends Component {
                             variant="contained"
                             color="primary"
                             className={classes.button}
-                            onClick={this.props.fetchRepoList}
+                            onClick={event => this.props.fetchRepoList(event)}
                         >
                             All
                         </Button>
