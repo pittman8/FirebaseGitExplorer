@@ -3,11 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "@octokit/rest": "^16.25.6",
-    "babel-core": "6.26.3",
     "enzyme-adapter-react-16": "^1.12.1",
     "express": "4.16.4",
     "prop-types": "^15.7.2"
@@ -23,8 +21,8 @@
     "test": "echo 'The project tests are not here. Navigate into project-sanity-tests and run npm test'"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
-    "babel-cli": "^6.26.0",
     "babel-eslint": "^10.0.1",
     "concurrently": "^4.1.0",
     "eslint": "^5.16.0",

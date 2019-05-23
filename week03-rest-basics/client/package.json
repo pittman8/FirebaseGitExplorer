@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "sanity-test": "react-scripts test Sanity*",
+    "sanity-tests": "react-scripts test Sanity*",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
