@@ -2,8 +2,22 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import '../css/App.css';
+import { withStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import CssBaseline from '@material-ui/core/CssBaseline';
+//import Grid from '@material-ui/core/Grid';
 
-export class GetGist extends Component {
+const styles = {
+    root: {
+        flexGrow: 1,
+    },
+    menuButton: {
+        marginLeft: -18,
+        marginRight: 10,
+    },
+};
+
+class GetGist extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -32,19 +46,20 @@ export class GetGist extends Component {
     }
 
     render() {
+        //const { classes } = this.props;
         return(
-            <div className="App">
+            <React.Fragment>
+                <CssBaseline>
                 <h1 className="App-header">Get Gist Component</h1>
                 <br/>
-                <div className="App-intro">
-                    <p>
-                        description: {this.props.gistList[this.state.index].description}
-                        <br />
-                        gistID: {this.props.gistList[this.state.index].id}
-                        <br />
-                        owner: {this.props.gistList[this.state.index].ownerLogin}
-
-                    </p>
+                <div className='backDiv3'>
+                    <div className='layout'>
+                        <Typography id="description" variant="h6">description: {this.props.gistList[this.state.index].description}</Typography>
+                        <Typography id="id" variant="h6">gistID: {this.props.gistList[this.state.index].id}</Typography>
+                        <Typography id="ownerLogin" variant="h6">owner login: {this.props.gistList[this.state.index].ownerLogin}</Typography>
+                        <Typography id="gitPullUrl" variant="h6">gitPullUrl: {this.props.gistList[this.state.index].gitPullUrl}</Typography>
+                        <Typography id="files" variant="h6">files: {this.props.gistList[this.state.index].files}</Typography>
+                    </div>
                     <Button
                         variant="contained"
                         color="primary"
@@ -78,7 +93,9 @@ export class GetGist extends Component {
                         Next
                     </Button>
                 </div>
-            </div>
+                </CssBaseline>
+            </React.Fragment>
+
         );
     }
 
@@ -89,3 +106,5 @@ GetGist.propTypes = {
     queryServer: PropTypes.func,
     fetchGistList: PropTypes.func
 };
+
+export default withStyles(styles)(GetGist);

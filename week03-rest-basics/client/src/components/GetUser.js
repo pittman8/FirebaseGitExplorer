@@ -1,7 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
 
-export const GetUser = ({ queryServer, body }) => (
+const styles = {
+    root: {
+        flexGrow: 1,
+    },
+    menuButton: {
+        marginLeft: -18,
+        marginRight: 10,
+    },
+};
+
+const GetUser = ({ queryServer, body }) => (
     <div className="App-intro">
         <p>login: {body.login}</p>
         <p>id: {body.id}</p>
@@ -20,3 +31,5 @@ export const GetUser = ({ queryServer, body }) => (
 GetUser.propTypes = {
     queryServer: PropTypes.func
 };
+
+export default withStyles(styles)(GetUser);

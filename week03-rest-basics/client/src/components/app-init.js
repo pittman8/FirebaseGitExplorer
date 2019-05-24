@@ -10,8 +10,21 @@ export const appInit = {
         name: 'unknown'
     },
     gistList: [
-        {id: 'unknown1', description: 'unknown1', ownerLogin: 'unknown1'},
-        {id: 'unknown2', description: 'unknown2', ownerLogin: 'unknown2'}
+        {
+            id: 'unknown1',
+            description: 'unknown1',
+            ownerLogin: 'unknown1',
+            gitPullUrl: 'unknown1',
+            files: 'unknown1'
+        },
+        {
+            id: 'unknown2',
+            description: 'unknown2',
+            ownerLogin: 'unknown2',
+            gitPullUrl: 'unknown2',
+            files: 'unknown2'
+
+        }
     ],
     repoList : [
         {

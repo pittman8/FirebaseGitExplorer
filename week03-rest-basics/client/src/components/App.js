@@ -3,12 +3,23 @@ import PropTypes from 'prop-types';
 import '../css/App.css';
 import 'whatwg-fetch';
 import { Qux } from './Qux';
-import { GetGist } from './GetGist';
+import GetGist from './GetGist';
 import { TestRoutes } from './TestRoutes';
-import { GetUser } from './GetUser';
+import GetUser from './GetUser';
 import GetRepos from './GetRepos';
 import ElfHeader from './ElfHeader';
 import {BrowserRouter, Route} from "react-router-dom";
+import { withStyles } from '@material-ui/core/styles';
+
+const styles = {
+    root: {
+        flexGrow: 1,
+    },
+    menuButton: {
+        marginLeft: -18,
+        marginRight: 10,
+    },
+};
 
 class App extends Component {
     constructor(props) {
@@ -111,6 +122,12 @@ class App extends Component {
             });
     };
 
+    setData = () => {
+        return(
+            console.log("setData function for testing: setData is in GetGist and RetRepo components")
+        );
+    };
+
     render() {
         return (
             <BrowserRouter>
@@ -183,4 +200,4 @@ App.propTypes = {
     fetchRepoList: PropTypes.func
 };
 
-export default App;
+export default withStyles(styles)(App);

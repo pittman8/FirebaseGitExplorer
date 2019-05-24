@@ -60,7 +60,7 @@ describe('Check Gist Display Suite', () => {
         expect(wrapper.find('#files').length).toBe(1);
     });
 
-    it('checks that one element has an id of url', () => {
+    it('checks that there is one img element in your component', () => {
         expect(wrapper.find('img').length).toBe(1);
     });
 });

@@ -84,7 +84,7 @@ router.get('/get-hidden-gists', (request, response) => {
     }).then(({data}) => {
         for (let gist of data) {
             if (gist.public === true) {
-                data.pop();
+                data.pop(gist);
             }
         }
         response.send({ result: data });

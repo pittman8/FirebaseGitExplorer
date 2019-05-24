@@ -57,6 +57,7 @@ describe('Sanity GetGist Layout Tests', () => {
     it('checks that we use backDiv3', () => {
         console.log(wrapper.find('div').debug());
         expect(wrapper.find('div').first().length).toBe(1);
+        expect(wrapper.find('div').first().props().className.includes('backDiv3')).toBe(true);
     });
 
     it('checks that we use className layout in second item', () => {
