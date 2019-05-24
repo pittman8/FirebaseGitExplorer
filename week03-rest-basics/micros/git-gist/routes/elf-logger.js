@@ -21,7 +21,6 @@
  *   logger.log('Hello logger', 'param two', 'param three');
  */
 const ElfLogger = class {
-
     constructor(loggerInit, colorInit, bgInit, fontSizeInit) {
         this.display = false;
         if (!colorInit) {
@@ -33,9 +32,13 @@ const ElfLogger = class {
         if (!fontSizeInit) {
             fontSizeInit = '18px';
         }
-        this.textStyle = 'color: ' + colorInit +
-            '; background-color: ' + bgInit +
-            '; font-size: ' + fontSizeInit;
+        this.textStyle =
+            'color: ' +
+            colorInit +
+            '; background-color: ' +
+            bgInit +
+            '; font-size: ' +
+            fontSizeInit;
         this.titleStyle = 'font-size: ' + fontSizeInit;
         this.logger = loggerInit;
         this.log = this.log.bind(this);
@@ -47,9 +50,15 @@ const ElfLogger = class {
             const envs = process.env.REACT_APP_ELF_LOGGER.split(';');
             if (envs.indexOf(this.logger) > -1) {
                 if (process.title === 'browser') {
-                    console.info('%c %s: %c %s %s %s',
-                        this.titleStyle, this.logger, this.textStyle,
-                        message1, message2, message3);
+                    console.info(
+                        '%c %s: %c %s %s %s',
+                        this.titleStyle,
+                        this.logger,
+                        this.textStyle,
+                        message1,
+                        message2,
+                        message3
+                    );
                 } else {
                     console.log(this.logger, message1, message2, message3);
                 }

@@ -15,6 +15,7 @@ const myOctokit = new Octokit({
 
 let getGitHub = function() {
     let gh;
+    /*eslint-disable no-constant-condition*/
     if (true) {
         gh = new GitHub({
             token: token
@@ -26,15 +27,6 @@ let getGitHub = function() {
         });
     }
     return gh;
-};
-
-let privateGists = function() {
-    let privateData = [];
-    for (let i = 0; i < data.length; i++) {
-        if (data[i].public === false) {
-            privateData.push(data[i]);
-        }
-    }
 };
 
 /* GET home page. */
@@ -54,8 +46,7 @@ router.get('/git-gist-get-gist-list', function(request, response) {
     let gh = getGitHub();
     const me = gh.getUser();
     debug('ME', me);
-    me
-        .listGists()
+    me.listGists()
         .then(function({ data }) {
             debug('FILES PROMISE', Object.keys(data[0].files));
             const results = data.map(item => ({
@@ -79,25 +70,29 @@ router.get('/git-gist-get-gist-list', function(request, response) {
 });
 
 router.get('/get-hidden-gists', (request, response) => {
-    myOctokit.gists.list({
-        per_page: 100,
-    }).then(({data}) => {
-        for (let gist of data) {
-            if (gist.public === true) {
-                data.pop(gist);
+    myOctokit.gists
+        .list({
+            per_page: 100
+        })
+        .then(({ data }) => {
+            const newData = [];
+            for (let i = 0; i < data.length; i++) {
+                if (data[i].public === false) {
+                    newData.push(data[i]);
+                }
             }
-        }
-        response.send({ result: data });
-    })
+            response.send({ result: newData });
+        });
 });
 
 router.get('/get-all-gists', (request, response) => {
-    myOctokit.gists.list({
-        per_page: 100
-    }).then(({ data }) => {
-        response.send({ result: data });
-    })
+    myOctokit.gists
+        .list({
+            per_page: 100
+        })
+        .then(({ data }) => {
+            response.send({ result: data });
+        });
 });
-
 
 module.exports = router;
