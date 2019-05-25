@@ -4,23 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import PropTypes from 'prop-types';
-
-const styles = theme => ({
-    root: {
-        flexGrow: 1
-    },
-    paper: {
-        padding: theme.spacing.unit * 5,
-        textAlign: 'center',
-        color: theme.palette.text.secondary
-    },
-    typography: {
-        color: theme.palette.primary.dark
-    },
-    button: {
-        margin: theme.spacing.unit
-    }
-});
+import { styles } from './elf-styles';
 
 class GetRepos extends Component {
     constructor(props) {

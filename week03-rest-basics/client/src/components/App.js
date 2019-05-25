@@ -10,16 +10,8 @@ import GetRepos from './GetRepos';
 import ElfHeader from './ElfHeader';
 import {BrowserRouter, Route} from "react-router-dom";
 import { withStyles } from '@material-ui/core/styles';
-
-const styles = {
-    root: {
-        flexGrow: 1,
-    },
-    menuButton: {
-        marginLeft: -18,
-        marginRight: 10,
-    },
-};
+import { styles } from './elf-styles';
+import { ShowResultServer } from './ShowResultServer';
 
 class App extends Component {
     constructor(props) {
@@ -133,15 +125,7 @@ class App extends Component {
             <BrowserRouter>
                 <div className="App">
                     <ElfHeader />
-                    <div className="App-intro">
-                        <p>
-                            state: {this.state.status} file: {this.state.file}
-                        </p>
-                        <p>
-                            result: {this.state.result} server: {this.state.server}
-                        </p>
-                    </div>
-
+                    <ShowResultServer result={this.state.result} server={this.state.server}/>
                     <Route
                         path="/test-routes"
                         render={(props)=> (

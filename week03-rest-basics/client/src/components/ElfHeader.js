@@ -11,17 +11,8 @@ import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
 import { gitItems, demoItems } from './tileData';
 import logo from '../images/watermelon.svg';
+import { styles } from './elf-styles';
 import '../css/App.css';
-
-const styles = {
-    root: {
-        flexGrow: 1,
-    },
-    menuButton: {
-        marginLeft: -18,
-        marginRight: 10,
-    },
-};
 
 /*
 const handleToggles = () => {

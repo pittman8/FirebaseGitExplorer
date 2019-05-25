@@ -3,19 +3,11 @@ import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import '../css/App.css';
 import { withStyles } from '@material-ui/core/styles';
+import { styles } from './elf-styles';
 import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
 //import Grid from '@material-ui/core/Grid';
 
-const styles = {
-    root: {
-        flexGrow: 1,
-    },
-    menuButton: {
-        marginLeft: -18,
-        marginRight: 10,
-    },
-};
 
 class GetGist extends Component {
     constructor(props) {

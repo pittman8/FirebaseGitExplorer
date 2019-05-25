@@ -1,16 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-
-const styles = {
-    root: {
-        flexGrow: 1,
-    },
-    menuButton: {
-        marginLeft: -18,
-        marginRight: 10,
-    },
-};
+import { styles } from './elf-styles';
 
 const GetUser = ({ queryServer, body }) => (
     <div className="App-intro">
