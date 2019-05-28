@@ -5,6 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import PropTypes from 'prop-types';
 import { styles } from './elf-styles';
+import Grid from '@material-ui/core/Grid';
 
 class GetRepos extends Component {
     constructor(props) {
@@ -37,7 +38,26 @@ class GetRepos extends Component {
     render() {
         const { classes } = this.props;
         return (
-            <div className="App">
+            <React.Fragment>
+                <Grid container spacing={24}>
+                    <Grid item xs={12}>
+                        <Paper className={classes.paperLion}>
+                            <Typography variant="h4">
+                                Get Repos Component
+                            </Typography>
+                        </Paper>
+                    </Grid>
+                    <br/>
+                <Paper className={classes.paperLion}>
+                    <Typography id="name" variant="h6"> name: {this.props.repoList[this.state.index].name} </Typography>
+                    <Typography id="full_name" variant="h6"> full name: {this.props.repoList[this.state.index].full_name} </Typography>
+                    <Typography id="html" variant="h6"> html_url: {this.props.repoList[this.state.index].html_url} </Typography>
+                    <Typography id="login" variant="h6"> owner login: {this.props.repoList[this.state.index].owner.login} </Typography>
+                    <Typography id="url" variant="h6"> owner url: {this.props.repoList[this.state.index].owner.url} </Typography>
+                    <Typography id="private" variant="h6"> private: {(this.props.repoList[this.state.index].private).toString()} </Typography>
+                </Paper>
+                    <Grid item xs={12}>
+                        <Paper className={classes.paperLion}>
                     <Button
                         variant="contained"
                         color="primary"
@@ -46,25 +66,6 @@ class GetRepos extends Component {
                         Ring Git User
                     </Button>
 
-                <div className={classes.root}>
-                    <br />
-                    <Paper className={classes.paper}>
-                        <Typography
-                            gutterBottom
-                            variant="h5"
-                            className={classes.typography}
-                        >
-                            Get Repositories
-                        </Typography>
-                    </Paper>
-
-                    <Paper className={classes.paper}>
-                        <Typography id="name" variant="h6"> name: {this.props.repoList[this.state.index].name} </Typography>
-                        <Typography id="full_name" variant="h6"> full name: {this.props.repoList[this.state.index].full_name} </Typography>
-                        <Typography id="html" variant="h6"> html_url: {this.props.repoList[this.state.index].html_url} </Typography>
-                        <Typography id="login" variant="h6"> owner login: {this.props.repoList[this.state.index].owner.login} </Typography>
-                        <Typography id="url" variant="h6"> owner url: {this.props.repoList[this.state.index].owner.url} </Typography>
-                        <Typography id="private" variant="h6"> private: {(this.props.repoList[this.state.index].private).toString()} </Typography>
 
                         <Button
                             id="prev"
@@ -86,39 +87,42 @@ class GetRepos extends Component {
                             }>
                             Next
                         </Button>
-                    </Paper>
+                        </Paper>
+                    </Grid>
 
-                    <Paper className={classes.paper}>
-                        <Button
-                            id="private"
-                            variant="contained"
-                            color="primary"
-                            className={classes.button}
-                            onClick={event => this.props.fetchRepoList(event)}
-                        >
-                            Private
-                        </Button>
-                        <Button
-                            id="public"
-                            variant="contained"
-                            color="primary"
-                            className={classes.button}
-                            onClick={event => this.props.fetchRepoList(event)}
-                        >
-                            Public
-                        </Button>
-                        <Button
-                            id="all"
-                            variant="contained"
-                            color="primary"
-                            className={classes.button}
-                            onClick={event => this.props.fetchRepoList(event)}
-                        >
-                            All
-                        </Button>
-                    </Paper>
-                </div>
-            </div>
+                    <Grid item xs={12}>
+                        <Paper className={classes.paperLion}>
+                            <Button
+                                id="private"
+                                variant="contained"
+                                color="primary"
+                                className={classes.button}
+                                onClick={event => this.props.fetchRepoList(event)}
+                            >
+                                Private
+                            </Button>
+                            <Button
+                                id="public"
+                                variant="contained"
+                                color="primary"
+                                className={classes.button}
+                                onClick={event => this.props.fetchRepoList(event)}
+                            >
+                                Public
+                            </Button>
+                            <Button
+                                id="all"
+                                variant="contained"
+                                color="primary"
+                                className={classes.button}
+                                onClick={event => this.props.fetchRepoList(event)}
+                            >
+                                All
+                            </Button>
+                        </Paper>
+                    </Grid>
+                </Grid>
+            </React.Fragment>
         );
     }
 }
