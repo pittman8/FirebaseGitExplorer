@@ -36,7 +36,8 @@ export const styles = theme => ({
         flexGrow: 1,
         padding: theme.spacing.unit,
         textAlign: 'center',
-        color: theme.palette.primary.dark
+        color: theme.palette.primary.dark,
+        backgroundColor: '#cce2ee'
     },
     paperLion2: {
         height: '56%',

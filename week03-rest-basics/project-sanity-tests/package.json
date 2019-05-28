@@ -4,7 +4,7 @@
   "description": "Test Project Structure",
   "main": "index.js",
   "scripts": {
-    "test": "npx jest Sanity --watch"
+    "test": "jest Sanity --watch"
   },
   "keywords": [
     "jest",
@@ -13,9 +13,6 @@
   "author": "Charlie Calvert",
   "license": "MIT",
   "dependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
-    "elven-code": "^4.6.3",
-    "jest": "^24.8.0"
+    "elven-code": "^4.6.3"
   }
 }

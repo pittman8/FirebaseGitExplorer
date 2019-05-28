@@ -3,7 +3,6 @@ import ElfLogger from '../lib/elf-logger';
 const debug = new ElfLogger('infostructure');
 
 describe('Git Explorer confirm client, server and micros Suite', () => {
-
     const preface = '/../../';
 
     it('proves we can run a test', () => {
@@ -41,31 +40,27 @@ describe('Git Explorer confirm client, server and micros Suite', () => {
         expect(elvenCode.elfUtils.fileExists(startClient)).toBe(true);
     });
 
-    it('checks content of .babelrc', (done) => {
+    it('checks content of .babelrc', done => {
         const fileName = __dirname + preface + '.babelrc';
-        elvenCode.elfUtils
-            .readFile(fileName)
-            .then(json => {
-                const babelrc = JSON.parse(json.result);
-                expect(babelrc.plugins).toBeTruthy();
-                expect(babelrc.presets).toBeTruthy();
-                expect(babelrc.env).toBeTruthy();
-                debug.log(babelrc.plugins);
-                done();
-            });
+        elvenCode.elfUtils.readFile(fileName).then(json => {
+            const babelrc = JSON.parse(json.result);
+            expect(babelrc.plugins).toBeTruthy();
+            expect(babelrc.presets).toBeTruthy();
+            expect(babelrc.env).toBeTruthy();
+            debug.log(babelrc.plugins);
+            done();
+        });
     });
 
-    it('checks content of package.json', (done) => {
+    it('checks content of package.json', done => {
         const fileName = __dirname + preface + 'package.json';
-        elvenCode.elfUtils
-            .readFile(fileName)
-            .then(json => {
-                const packageJson = JSON.parse(json.result);
-                expect(packageJson.dependencies).toBeTruthy();
-                expect(packageJson.devDependencies).toBeTruthy();
-                expect(packageJson.scripts).toBeTruthy();
-                debug.log(packageJson.plugins);
-                done();
-            });
+        elvenCode.elfUtils.readFile(fileName).then(json => {
+            const packageJson = JSON.parse(json.result);
+            expect(packageJson.dependencies).toBeTruthy();
+            expect(packageJson.devDependencies).toBeTruthy();
+            expect(packageJson.scripts).toBeTruthy();
+            debug.log(packageJson.plugins);
+            done();
+        });
     });
 });

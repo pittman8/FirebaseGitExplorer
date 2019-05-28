@@ -12,7 +12,7 @@ describe('Git Explorer confirm client, server and micros Suite', () => {
         expect(elvenCode.elfUtils.fileExists(fileName)).toBe(true);
     });
 
-    it('checks if micros/git-user/result/index.js exists', () => {
+    it('checks if micros/git-user/routes/index.js exists', () => {
         const fileName = __dirname + preface + 'git-user/routes/index.js';
         expect(elvenCode.elfUtils.fileExists(fileName)).toBe(true);
     });
@@ -36,5 +36,4 @@ describe('Git Explorer confirm client, server and micros Suite', () => {
         const fileName = __dirname + preface + 'git-gist/source/control.js';
         expect(elvenCode.elfUtils.fileExists(fileName)).toBe(true);
     });
-
 });

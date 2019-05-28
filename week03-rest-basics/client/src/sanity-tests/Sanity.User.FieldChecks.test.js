@@ -7,16 +7,17 @@ import GetUser from '../components/GetUser';
 configure({ adapter: new Adapter() });
 
 describe('Are we displaying the right fields of the user', () => {
-
     let wrapper = null;
     beforeEach(() => {
-        wrapper = shallow(<GetUser
-            queryServer={() => {}}
-            body={{id: 'unknown'}}
-            result={'success'}
-            status={'unknown'}
-            server={'user'}
-        />).dive();
+        wrapper = shallow(
+            <GetUser
+                queryServer={() => {}}
+                body={{ id: 'unknown' }}
+                result={'success'}
+                status={'unknown'}
+                server={'user'}
+            />
+        ).dive();
     });
 
     it('proves we can run a test', () => {
@@ -28,7 +29,7 @@ describe('Are we displaying the right fields of the user', () => {
         ReactDOM.render(
             <GetUser
                 queryServer={() => {}}
-                body={{id: 'unknown'}}
+                body={{ id: 'unknown' }}
                 result={'success'}
                 status={'unknown'}
                 server={'user'}

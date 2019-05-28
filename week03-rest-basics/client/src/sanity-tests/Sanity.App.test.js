@@ -5,33 +5,32 @@ import elfUtils from 'elven-code';
 import { appInit } from '../components/app-init';
 import Adapter from 'enzyme-adapter-react-16';
 import { configure, shallow } from 'enzyme';
+import { BrowserRouter } from 'react-router-dom';
 
 configure({ adapter: new Adapter() });
 
 describe('Sanity App Tests', () => {
-
     it('proves we can run a test', () => {
         expect(true).toBe(true);
     });
 
     const create = () => {
-        return shallow(<App appInit={appInit} />).dive();
+        const wrapper = shallow(
+            <BrowserRouter>
+                <App appInit={appInit}/>);
+            </BrowserRouter>);
+        return wrapper.find('WithStyles(App)').dive().dive();
     };
 
     it('renders without crashing', () => {
         const div = document.createElement('div');
-        ReactDOM.render(<App appInit={appInit} />, div);
+        ReactDOM.render(<BrowserRouter><App appInit={appInit}/></BrowserRouter>, div);
         ReactDOM.unmountComponentAtNode(div);
     });
 
-    it('is able to dive', () => {
-        const wrapper = shallow(<App appInit={appInit} />);
-        expect(wrapper.dive().length).toBeGreaterThan(0);
-    });
-
-    it('is wrapped in a BrowserRouter', () => {
-        const wrapper = shallow(<App appInit={appInit} />);
-        expect(wrapper.dive().find('BrowserRouter').length).toBe(1);
+    it('appears to be valid', () => {
+        const wrapper = create();
+        expect(wrapper.length).toBeGreaterThan(0);
     });
 
     it('App.js includes the method setData', () => {
@@ -60,5 +59,4 @@ describe('Sanity App Tests', () => {
         const fileName = __dirname + '/../../src/components/App.js';
         expect(elfUtils.elfUtils.fileExists(fileName)).toBe(true);
     });
-
 });

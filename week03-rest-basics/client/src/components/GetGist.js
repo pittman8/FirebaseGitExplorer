@@ -5,8 +5,8 @@ import '../css/App.css';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from './elf-styles';
 import Typography from '@material-ui/core/Typography';
-import CssBaseline from '@material-ui/core/CssBaseline';
-//import Grid from '@material-ui/core/Grid';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 
 
 class GetGist extends Component {
@@ -41,51 +41,62 @@ class GetGist extends Component {
         const { classes } = this.props;
         return(
             <React.Fragment>
-                <CssBaseline>
-                <h1 className="App-header">Get Gist Component</h1>
+                <Grid container spacing={24}>
+                    <Grid item xs={12}>
+                        <Paper className={classes.paperLion}>
+                            <Typography variant="h4">
+                                Get Gist Component
+                            </Typography>
+                        </Paper>
+                    </Grid>
                 <br/>
-                <div className={ classes.backDiv3 }>
-                    <div className={ classes.layout }>
-                        <Typography id="description" variant="h6">description: {this.props.gistList[this.state.index].description}</Typography>
-                        <Typography id="id" variant="h6">gistID: {this.props.gistList[this.state.index].id}</Typography>
-                        <Typography id="ownerLogin" variant="h6">owner login: {this.props.gistList[this.state.index].ownerLogin}</Typography>
-                        <Typography id="gitPullUrl" variant="h6">gitPullUrl: {this.props.gistList[this.state.index].gitPullUrl}</Typography>
-                        <Typography id="files" variant="h6">files: {this.props.gistList[this.state.index].files}</Typography>
-                    </div>
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        data-url="/git-gist-you-rang"
-                        onClick={this.props.queryServer}>
-                        Ring Git Gist
-                    </Button>
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        data-url="/git-gist-get-gist-list"
-                        onClick={this.props.fetchGistList}>
-                        Fetch Gist List
-                    </Button>
-                    <Button
-                        id="prev"
-                        variant="contained"
-                        color="primary"
-                        onClick={event =>
-                            this.setData(0, this.setData(), event)
-                        }>
-                        Prev
-                    </Button>
-                    <Button
-                        id="next"
-                        variant="contained"
-                        color="primary"
-                        onClick={event =>
-                            this.setData(1, this.setData(), event)
-                        }>
-                        Next
-                    </Button>
-                </div>
-                </CssBaseline>
+                    <Paper className={classes.paperLion}>
+                        <div className={ classes.layout }>
+                            <Typography id="description" variant="h6">description: {this.props.gistList[this.state.index].description}</Typography>
+                            <Typography id="id" variant="h6">gistID: {this.props.gistList[this.state.index].id}</Typography>
+                            <Typography id="ownerLogin" variant="h6">owner login: {this.props.gistList[this.state.index].ownerLogin}</Typography>
+                            <Typography id="gitPullUrl" variant="h6">gitPullUrl: {this.props.gistList[this.state.index].gitPullUrl}</Typography>
+                            <Typography id="files" variant="h6">files: {this.props.gistList[this.state.index].files}</Typography>
+                        </div>
+                    </Paper>
+                    <br/>
+                    <Grid item xs={12}>
+                        <Paper className={classes.paperLion}>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                data-url="/git-gist-you-rang"
+                                onClick={this.props.queryServer}>
+                                Ring Git Gist
+                            </Button>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                data-url="/git-gist-get-gist-list"
+                                onClick={this.props.fetchGistList}>
+                                Fetch Gist List
+                            </Button>
+                            <Button
+                                id="prev"
+                                variant="contained"
+                                color="primary"
+                                onClick={event =>
+                                    this.setData(0, this.setData(), event)
+                                }>
+                                Prev
+                            </Button>
+                            <Button
+                                id="next"
+                                variant="contained"
+                                color="primary"
+                                onClick={event =>
+                                    this.setData(1, this.setData(), event)
+                                }>
+                                Next
+                            </Button>
+                        </Paper>
+                    </Grid>
+                </Grid>
             </React.Fragment>
 
         );

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Adapter from 'enzyme-adapter-react-16';
 import { configure, shallow } from 'enzyme';
-import GetGist from '../components/GetGist';
+import App from './App';
 
 configure({ adapter: new Adapter() });
 
@@ -10,7 +10,7 @@ describe('Check Gist withStyles Display Suite', () => {
     let wrapper = null;
     beforeEach(() => {
         wrapper = shallow(
-            <GetGist
+            <App
                 queryServer={() => {}}
                 fetchGistList={() => {}}
                 result={'success'}
@@ -30,7 +30,7 @@ describe('Check Gist withStyles Display Suite', () => {
     it('renders without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(
-            <GetGist
+            <App
                 queryServer={() => {}}
                 fetchGistList={() => {}}
                 result={'success'}
@@ -41,27 +41,15 @@ describe('Check Gist withStyles Display Suite', () => {
         ReactDOM.unmountComponentAtNode(div);
     });
 
-    it('checks that one element has an id of id', () => {
-        expect(wrapper.find('#id').length).toBe(1);
-    });
-
-    it('checks that one element has an id of description', () => {
-        expect(wrapper.find('#description').length).toBe(1);
-    });
-
     it('checks that one element has an id of ownerLogin', () => {
-        expect(wrapper.find('#ownerLogin').length).toBe(1);
+        expect(wrapper.find('#lo').length).toBe(1);
     });
 
     it('checks that one element has an id of gitPullUrl', () => {
-        expect(wrapper.find('#gitPullUrl').length).toBe(1);
+        expect(wrapper.find('#gridContainerSpace24').length).toBe(1);
     });
 
     it('checks that one element has an id of files', () => {
-        expect(wrapper.find('#files').length).toBe(1);
-    });
-
-    it('checks that there is one img element the (avatarUrl) in your component', () => {
-        expect(wrapper.find('img').length).toBe(1);
+        expect(wrapper.find('#gridItem12').length).toBe(1);
     });
 });

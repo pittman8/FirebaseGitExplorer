@@ -12,6 +12,8 @@ import {BrowserRouter, Route} from "react-router-dom";
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from './elf-styles';
 import { ShowResultServer } from './ShowResultServer';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 
 class App extends Component {
     constructor(props) {
@@ -121,11 +123,18 @@ class App extends Component {
     };
 
     render() {
+        const { classes } = this.props;
         return (
             <BrowserRouter>
                 <div className="App">
                     <ElfHeader />
-                    <ShowResultServer result={this.state.result} server={this.state.server}/>
+                    <br/>
+                    <Grid item xs={12}>
+                        <Paper className={classes.paperLion}>
+                            <ShowResultServer result={this.state.result} server={this.state.server}/>
+                        </Paper>
+                    </Grid>
+                    <br/>
                     <Route
                         path="/test-routes"
                         render={(props)=> (

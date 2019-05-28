@@ -1,7 +1,6 @@
 import elfUtils from 'elven-code';
 
 describe('Sanity File Structure Suite', () => {
-
     it('checks if ElfHeader exists', () => {
         const fileName = __dirname + '/../../src/components/ElfHeader.js';
         expect(elfUtils.elfUtils.fileExists(fileName)).toBe(true);
@@ -36,5 +35,4 @@ describe('Sanity File Structure Suite', () => {
         const fileName = __dirname + '/../../src/components/elf-styles.js';
         expect(elfUtils.elfUtils.fileExists(fileName)).toBe(true);
     });
-
 });

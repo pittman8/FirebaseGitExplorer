@@ -1,27 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Adapter from 'enzyme-adapter-react-16';
-//import ElfDebugEnzyme from '../tests/ElfDebugEnzyme';
-import {configure, shallow} from 'enzyme';
+import { configure, shallow } from 'enzyme';
 import GetGist from '../components/GetGist';
-import {Grid} from "@material-ui/core";
+import { Grid } from '@material-ui/core';
+import Paper from '@material-ui/core/Paper';
 
-//const elfDebugEnzyme = new ElfDebugEnzyme(false, 'App.test.js', true);
-configure({adapter: new Adapter()});
+configure({ adapter: new Adapter() });
+
+const debug = process.env.REACT_APP_ELF_LOGGER === 'get-user' ? console.log : () => {};
 
 describe('Sanity GetGist Layout Tests', () => {
-
     let wrapper = null;
 
     beforeEach(() => {
-        wrapper = shallow(<GetGist
-            queryServer={() => {
-            }}
-            fetchGistList={() => {
-            }}
-            result={'success'}
-            gistList={[{id: 3}]}
-        />,).dive();
+        wrapper = shallow(
+            <GetGist
+                queryServer={() => {}}
+                fetchGistList={() => {}}
+                result={'success'}
+                gistList={[{ id: 3 }]}
+            />
+        ).dive();
     });
 
     afterEach(() => {
@@ -50,28 +50,51 @@ describe('Sanity GetGist Layout Tests', () => {
         expect(typeof GetGist).toBe('function');
     });
 
-    it('checks that we use CssBaseLine', () => {
-        expect(wrapper.find('WithStyles(CssBaseline)').length).toBe(1);
+    it('checks that we do NOT use CssBaseLine', () => {
+        expect(wrapper.find('WithStyles(CssBaseline)').length).toBe(0);
     });
 
-    it('checks that we use backDiv3', () => {
-        console.log(wrapper.find('div').debug());
-        expect(wrapper.find('div').first().length).toBe(1);
-        expect(wrapper.find('div').first().props().className.includes('backDiv3')).toBe(true);
+    it('checks that we do NOT use backDiv3', () => {
+        debug(wrapper
+            .find('div')
+            .first()
+            .props()
+            .className);
+
+        expect(wrapper.find('div')
+            .first()
+            .props()
+            .className
+            .includes('backDiv3'))
+            .toBe(false);
     });
 
-    it('checks that we use className layout in second item', () => {
-        expect(wrapper.find('div').get(1).props.className.includes('layout')).toBe(true);
+    it('checks that we use className layout in first div', () => {
+        expect(
+            wrapper
+                .find('div')
+                .get(0)
+                .props.className.includes('layout')
+        ).toBe(true);
     });
 
     it('checks that the first Grid has a spacing of 24', () => {
-        console.log(wrapper.find(Grid).get(0).props.spacing);
+        debug(wrapper.find(Grid).get(0).props.spacing);
         expect(wrapper.find(Grid).get(0).props.spacing).toBe(24);
     });
 
     it('checks that the second Grid has xs=12', () => {
-        console.log(wrapper.find(Grid).get(1).props.xs);
+        debug(wrapper.find(Grid).get(1).props.xs);
         expect(wrapper.find(Grid).get(1).props.xs).toBe(12);
     });
 
+    it('checks for Paper', () => {
+        debug(wrapper.find(Paper).get(1).props.className);
+        expect(
+            wrapper
+                .find(Paper)
+                .get(1)
+                .props.className.includes('paperLion')
+        ).toBe(true);
+    });
 });
