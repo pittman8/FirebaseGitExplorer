@@ -38,14 +38,14 @@ class GetGist extends Component {
     }
 
     render() {
-        //const { classes } = this.props;
+        const { classes } = this.props;
         return(
             <React.Fragment>
                 <CssBaseline>
                 <h1 className="App-header">Get Gist Component</h1>
                 <br/>
-                <div className='backDiv3'>
-                    <div className='layout'>
+                <div className={ classes.backDiv3 }>
+                    <div className={ classes.layout }>
                         <Typography id="description" variant="h6">description: {this.props.gistList[this.state.index].description}</Typography>
                         <Typography id="id" variant="h6">gistID: {this.props.gistList[this.state.index].id}</Typography>
                         <Typography id="ownerLogin" variant="h6">owner login: {this.props.gistList[this.state.index].ownerLogin}</Typography>
