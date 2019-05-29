@@ -44,8 +44,6 @@ if (!chalk) {
 }
 
 export default class ElfDebugEnzyme {
-
-
     /**
      * @param showData: Whether or not to display output
      *
@@ -70,15 +68,19 @@ export default class ElfDebugEnzyme {
             value = 'Not found';
         }
         console.log(
-            chalk.bold.yellow('Caller:'), chalk.green(this.callerName) +
-            chalk.bold.yellow('Debug value:\n') + chalk.greenBright(value)
+            chalk.bold.yellow('Caller:'),
+            chalk.green(this.callerName) +
+                chalk.bold.yellow('Debug value:\n') +
+                chalk.greenBright(value)
         );
     }
 
     displayWrapper(newWrapper) {
         if (this.showData) {
             console.log('NEW WRAPPER', this.useDebug);
-            newWrapper = this.useDebug ? newWrapper.debug() : newWrapper.getElement();
+            newWrapper = this.useDebug
+                ? newWrapper.debug()
+                : newWrapper.getElement();
             if (typeof newWrapper === 'object') {
                 if (!this.useDebug) {
                     newWrapper = util.inspect(newWrapper);
@@ -116,7 +118,12 @@ export default class ElfDebugEnzyme {
         if (this.showData || showMe) {
             if (this.sanity(wrapper, element)) {
                 const newWrapper = wrapper.find(element).first();
-                debug(wrapper.find(element).first().getElement());
+                debug(
+                    wrapper
+                        .find(element)
+                        .first()
+                        .getElement()
+                );
                 this.displayWrapper(newWrapper);
             }
         }
@@ -127,7 +134,11 @@ export default class ElfDebugEnzyme {
             const newWrapper = wrapper.find(element).at(index);
             debug(wrapper.find(element).get(index));
             if (!newWrapper.exists()) {
-                return this.notFoundError(wrapper, {message: 'Element not found'}, element);
+                return this.notFoundError(
+                    wrapper,
+                    { message: 'Element not found' },
+                    element
+                );
             }
             this.displayWrapper(newWrapper);
         }
@@ -137,16 +148,24 @@ export default class ElfDebugEnzyme {
         if (this.showData || showMe) {
             if (this.sanity(wrapper, element)) {
                 const newWrapper = wrapper.find(element).last();
-                debug(wrapper.find(element).last().getElement());
+                debug(
+                    wrapper
+                        .find(element)
+                        .last()
+                        .getElement()
+                );
                 this.displayWrapper(newWrapper);
             }
         }
-
     }
 
     sanity(wrapper, element) {
         if (!wrapper.find(element).exists()) {
-            return this.notFoundError(wrapper, {message: 'No elements found'}, element);
+            return this.notFoundError(
+                wrapper,
+                { message: 'No elements found' },
+                element
+            );
         }
         return true;
     }
@@ -155,13 +174,24 @@ export default class ElfDebugEnzyme {
         if (this.showEntireWrapper === true) {
             console.log(chalk.green(wrapper.debug()));
         }
-        console.log(chalk.red.bgYellowBright('ERROR') +
-            chalk.yellowBright.bgBlueBright(chalk.black(': ' + err.message)) + '\n' +
-            chalk.yellowBright.bgBlueBright('Your ' + element +
-                ' element was not found in the wrapper. Are you\n' +
-                'sure you are searching on the right element? Are you\n' +
-                'searching in the right place? Consider using fit or .only.'));
-        this.displayWrapper({debug: () => 'not found', getElement: () => 'not found'});
+        console.log(
+            chalk.red.bgYellowBright('ERROR') +
+                chalk.yellowBright.bgBlueBright(
+                    chalk.black(': ' + err.message)
+                ) +
+                '\n' +
+                chalk.yellowBright.bgBlueBright(
+                    'Your ' +
+                        element +
+                        ' element was not found in the wrapper. Are you\n' +
+                        'sure you are searching on the right element? Are you\n' +
+                        'searching in the right place? Consider using fit or .only.'
+                )
+        );
+        this.displayWrapper({
+            debug: () => 'not found',
+            getElement: () => 'not found'
+        });
         return false;
     }
 }

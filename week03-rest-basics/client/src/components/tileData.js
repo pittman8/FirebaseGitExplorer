@@ -31,7 +31,6 @@ export const gitItems = (
             </ListItemIcon>
             <ListItemText primary="Get Gist" />
         </ListItem>
-
     </div>
 );
 

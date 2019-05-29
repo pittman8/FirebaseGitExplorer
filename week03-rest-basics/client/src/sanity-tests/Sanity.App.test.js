@@ -17,14 +17,24 @@ describe('Sanity App Tests', () => {
     const create = () => {
         const wrapper = shallow(
             <BrowserRouter>
-                <App appInit={appInit}/>);
-            </BrowserRouter>);
-        return wrapper.find('WithStyles(App)').dive().dive();
+                <App appInit={appInit} />
+                );
+            </BrowserRouter>
+        );
+        return wrapper
+            .find('WithStyles(App)')
+            .dive()
+            .dive();
     };
 
     it('renders without crashing', () => {
         const div = document.createElement('div');
-        ReactDOM.render(<BrowserRouter><App appInit={appInit}/></BrowserRouter>, div);
+        ReactDOM.render(
+            <BrowserRouter>
+                <App appInit={appInit} />
+            </BrowserRouter>,
+            div
+        );
         ReactDOM.unmountComponentAtNode(div);
     });
 

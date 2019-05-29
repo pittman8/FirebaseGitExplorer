@@ -8,8 +8,10 @@ import Paper from '@material-ui/core/Paper';
 
 configure({ adapter: new Adapter() });
 
-const debug = process.env.REACT_APP_ELF_LOGGER === 'sanity-get-user' ? console.log : () => {
-};
+const debug =
+    process.env.REACT_APP_ELF_LOGGER === 'sanity-get-user'
+        ? console.log
+        : () => {};
 
 describe('Sanity GetUser Layout Tests', () => {
     let wrapper = null;
@@ -23,7 +25,7 @@ describe('Sanity GetUser Layout Tests', () => {
                     login: 'unknown',
                     id: 'unknown',
                     avatar_url:
-                    'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Wind-turbine-icon.svg/128px-Wind-turbine-icon.svg.png'
+                        'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Wind-turbine-icon.svg/128px-Wind-turbine-icon.svg.png'
                 }}
             />
         ).dive();
@@ -55,24 +57,25 @@ describe('Sanity GetUser Layout Tests', () => {
         ReactDOM.unmountComponentAtNode(div);
     });
 
-
     it('checks that we do NOT use CssBaseLine', () => {
         expect(wrapper.find('WithStyles(CssBaseline)').length).toBe(0);
     });
 
     it('checks that we do NOT use backDiv3', () => {
-        debug(wrapper
-            .find('div')
-            .first()
-            .props()
-            .className);
+        debug(
+            wrapper
+                .find('div')
+                .first()
+                .props().className
+        );
 
-        expect(wrapper.find('div')
-            .first()
-            .props()
-            .className
-            .includes('backDiv3'))
-            .toBe(false);
+        expect(
+            wrapper
+                .find('div')
+                .first()
+                .props()
+                .className.includes('backDiv3')
+        ).toBe(false);
     });
 
     it('checks that we use className layout in first div', () => {

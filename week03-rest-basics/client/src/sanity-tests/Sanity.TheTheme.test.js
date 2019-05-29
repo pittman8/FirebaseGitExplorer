@@ -10,7 +10,7 @@ describe('Sanity GetGist Layout Tests', () => {
     let wrapper = null;
 
     beforeEach(() => {
-        wrapper = shallow(<TheTheme/>);
+        wrapper = shallow(<TheTheme />);
     });
 
     afterEach(() => {
@@ -23,7 +23,7 @@ describe('Sanity GetGist Layout Tests', () => {
 
     it('renders without crashing', () => {
         const div = document.createElement('div');
-        ReactDOM.render(<TheTheme/>, div);
+        ReactDOM.render(<TheTheme />, div);
         ReactDOM.unmountComponentAtNode(div);
     });
 
@@ -38,5 +38,4 @@ describe('Sanity GetGist Layout Tests', () => {
     it('checks that we use CssBaseLine', () => {
         expect(wrapper.find('WithStyles(CssBaseline)').length).toBe(1);
     });
-
 });

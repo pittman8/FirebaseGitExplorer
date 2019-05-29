@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -20,7 +20,7 @@ const handleToggles = () => {
 };
 */
 
-const ElfHeader = ({classes}) => {
+const ElfHeader = ({ classes }) => {
     const sideList = (
         <div className={classes.list}>
             <List>{gitItems}</List>
@@ -42,7 +42,7 @@ const ElfHeader = ({classes}) => {
                             aria-label="Menu"
                             onClick={() => setOpen(!open)}
                         >
-                            <MenuIcon/>
+                            <MenuIcon />
                         </IconButton>
 
                         <Typography
@@ -53,11 +53,12 @@ const ElfHeader = ({classes}) => {
                         >
                             GitExplorer
                         </Typography>
-
                     </Toolbar>
                 </AppBar>
                 <div className="App-header">
-                    <div className="App-logo"><img src={logo} alt="watermelon" width="100"/></div>
+                    <div className="App-logo">
+                        <img src={logo} alt="watermelon" width="100" />
+                    </div>
                     <h1>Git Explorer</h1>
                 </div>
                 <Drawer open={open} onClose={() => {}}>
@@ -71,7 +72,7 @@ const ElfHeader = ({classes}) => {
                 </Drawer>
             </div>
         </div>
-    )
+    );
 };
 
 ElfHeader.propTypes = {

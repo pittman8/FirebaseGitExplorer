@@ -17,7 +17,7 @@
         // disable rules from base configurations
         "no-console": "off",
         "no-control-regex": "warn",
-        "eslint no-constant-condition": "off",
+        "eslint no-constant-condition": "off"
     },
     "parser":  "babel-eslint",
     "parserOptions": {

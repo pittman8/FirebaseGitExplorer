@@ -30,19 +30,16 @@ const themePurple = createMuiTheme({
     }
 });
 
-
 // See : https://material-ui.com/customization/default-theme/
 export const TheTheme = () => {
     return (
         <MuiThemeProvider theme={themePurple}>
-                <CssBaseline/>
-                <App appInit={appInit}/>
+            <CssBaseline />
+            <App appInit={appInit} />
         </MuiThemeProvider>
     );
 };
 
-
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-

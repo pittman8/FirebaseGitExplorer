@@ -7,7 +7,7 @@ export const styles = theme => ({
     rooter: {
         ...theme.mixins.gutters(),
         paddingTop: theme.spacing.unit * 2,
-        paddingBottom: theme.spacing.unit * 2,
+        paddingBottom: theme.spacing.unit * 2
     },
     layout: {
         width: 'auto',
@@ -16,12 +16,12 @@ export const styles = theme => ({
         [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
             width: 1100,
             marginLeft: 'auto',
-            marginRight: 'auto',
-        },
+            marginRight: 'auto'
+        }
     },
     backDiv: {
         //backgroundRepeat: 'no-repeat',
-        height: '100%',
+        height: '100%'
     },
     backDiv2: {
         //backgroundRepeat: 'no-repeat',
@@ -56,12 +56,12 @@ export const styles = theme => ({
     paperHome: {
         ...theme.mixins.gutters(),
         paddingTop: theme.spacing.unit * 2,
-        paddingBottom: theme.spacing.unit * 2,
+        paddingBottom: theme.spacing.unit * 2
     },
     elfTypography: {
         fontSize: theme.spacing.unit * 2
     },
     containerDiv: {
         flexGrow: 1
-    },
+    }
 });

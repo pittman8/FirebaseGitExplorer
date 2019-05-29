@@ -8,7 +8,8 @@ import Paper from '@material-ui/core/Paper';
 
 configure({ adapter: new Adapter() });
 
-const debug = process.env.REACT_APP_ELF_LOGGER === 'get-user' ? console.log : () => {};
+const debug =
+    process.env.REACT_APP_ELF_LOGGER === 'get-user' ? console.log : () => {};
 
 describe('Sanity GetGist Layout Tests', () => {
     let wrapper = null;
@@ -55,18 +56,20 @@ describe('Sanity GetGist Layout Tests', () => {
     });
 
     it('checks that we do NOT use backDiv3', () => {
-        debug(wrapper
-            .find('div')
-            .first()
-            .props()
-            .className);
+        debug(
+            wrapper
+                .find('div')
+                .first()
+                .props().className
+        );
 
-        expect(wrapper.find('div')
-            .first()
-            .props()
-            .className
-            .includes('backDiv3'))
-            .toBe(false);
+        expect(
+            wrapper
+                .find('div')
+                .first()
+                .props()
+                .className.includes('backDiv3')
+        ).toBe(false);
     });
 
     it('checks that we use className layout in first div', () => {

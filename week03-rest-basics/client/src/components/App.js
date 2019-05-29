@@ -8,7 +8,7 @@ import { TestRoutes } from './TestRoutes';
 import GetUser from './GetUser';
 import GetRepos from './GetRepos';
 import ElfHeader from './ElfHeader';
-import {BrowserRouter, Route} from "react-router-dom";
+import { BrowserRouter, Route } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from './elf-styles';
 import { ShowResultServer } from './ShowResultServer';
@@ -33,7 +33,7 @@ class App extends Component {
                 if (json.body) {
                     json.body = JSON.parse(json.body);
                 }
-                that.setState(foo => json);
+                that.setState(json);
             })
             .catch(function(ex) {
                 console.log(
@@ -43,10 +43,10 @@ class App extends Component {
             });
     };
 
-    setGistList = (json) => {
+    setGistList = json => {
         console.log('parsed json', json);
-        this.setState(foo => {
-            return {gistList: json.result}
+        this.setState(function() {
+            return { gistList: json.result };
         });
     };
 
@@ -58,7 +58,7 @@ class App extends Component {
                 return response.json();
             })
             .then(function(json) {
-                that.setGistList(json)
+                that.setGistList(json);
             })
             .catch(function(ex) {
                 console.log(
@@ -68,14 +68,14 @@ class App extends Component {
             });
     };
 
-    setRepoList = (newRepoList) => {
+    setRepoList = newRepoList => {
         console.log('retrieved repos: ', newRepoList);
         this.setState({
             repoList: newRepoList
         });
     };
 
-    fetchRepoList = (event) => {
+    fetchRepoList = event => {
         const that = this;
         let id = event.currentTarget.id;
         let newRepoList = [];
@@ -85,7 +85,7 @@ class App extends Component {
                 return response.json();
             })
             .then(function(json) {
-                if(id === 'private') {
+                if (id === 'private') {
                     // private repos
                     console.log('These are private repos');
                     for (let i = 0; i < json.result.length; i++) {
@@ -93,14 +93,16 @@ class App extends Component {
                             newRepoList.push(json.result[i]);
                         }
                     }
-                } else if (id === 'public') { // public repos
+                } else if (id === 'public') {
+                    // public repos
                     console.log('These are public repos');
                     for (let i = 0; i < json.result.length; i++) {
                         if (json.result[i].private !== true) {
                             newRepoList.push(json.result[i]);
                         }
                     }
-                } else { // all repos
+                } else {
+                    // all repos
                     for (let i = 0; i < json.result.length; i++) {
                         newRepoList.push(json.result[i]);
                     }
@@ -117,8 +119,8 @@ class App extends Component {
     };
 
     setData = () => {
-        return(
-            console.log("setData function for testing: setData is in GetGist and RetRepo components")
+        return console.log(
+            'setData function for testing: setData is in GetGist and RetRepo components'
         );
     };
 
@@ -128,55 +130,65 @@ class App extends Component {
             <BrowserRouter>
                 <div className="App">
                     <ElfHeader />
-                    <br/>
+                    <br />
                     <Grid item xs={12}>
                         <Paper className={classes.paperLion}>
-                            <ShowResultServer result={this.state.result} server={this.state.server}/>
+                            <ShowResultServer
+                                result={this.state.result}
+                                server={this.state.server}
+                            />
                         </Paper>
                     </Grid>
-                    <br/>
+                    <br />
                     <Route
                         path="/test-routes"
-                        render={(props)=> (
-                            <TestRoutes {...props}
-                                 queryServer={this.queryServer} />
+                        render={props => (
+                            <TestRoutes
+                                {...props}
+                                queryServer={this.queryServer}
+                            />
                         )}
                     />
 
                     <Route
                         path="/qux"
-                        render={(props)=> (
-                            <Qux {...props}
-                                queryServer={this.queryServer} />
+                        render={props => (
+                            <Qux {...props} queryServer={this.queryServer} />
                         )}
                     />
 
                     <Route
                         path="/get-user"
-                        render={(props)=> (
-                            <GetUser {...props}
-                                 queryServer={this.queryServer}
-                                 body={this.state.body} />
+                        render={props => (
+                            <GetUser
+                                {...props}
+                                queryServer={this.queryServer}
+                                body={this.state.body}
+                            />
                         )}
                     />
 
                     <Route
                         path="/get-user-repos"
-                        render={(props)=> (
-                            <GetRepos {...props}
-                                     queryServer={this.queryServer}
-                                     fetchRepoList={this.fetchRepoList}
-                                     repoList={this.state.repoList}/>
+                        render={props => (
+                            <GetRepos
+                                {...props}
+                                queryServer={this.queryServer}
+                                fetchRepoList={this.fetchRepoList}
+                                repoList={this.state.repoList}
+                            />
                         )}
                     />
 
                     <Route
                         path="/get-gist"
-                        render={(props) => (
-                            <GetGist {...props}
-                                 queryServer={this.queryServer}
-                                 fetchGistList={this.fetchGistList}
-                                 gistList={this.state.gistList} />
+                        render={props => (
+                            <GetGist
+                                {...props}
+                                queryServer={this.queryServer}
+                                fetchGistList={this.fetchGistList}
+                                gistList={this.state.gistList}
+                            />
                         )}
                     />
                 </div>
@@ -190,7 +202,9 @@ App.propTypes = {
     fetchGistList: PropTypes.func,
     setGistList: PropTypes.func,
     setRepoList: PropTypes.func,
-    fetchRepoList: PropTypes.func
+    fetchRepoList: PropTypes.func,
+    appInit: PropTypes.object,
+    classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(App);

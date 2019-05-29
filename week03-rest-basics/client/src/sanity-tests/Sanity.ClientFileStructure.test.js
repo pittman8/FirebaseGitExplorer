@@ -27,7 +27,8 @@ describe('Sanity File Structure Suite', () => {
     });
 
     it('checks if ShowResult Server exists', () => {
-        const fileName = __dirname + '/../../src/components/ShowResultServer.js';
+        const fileName =
+            __dirname + '/../../src/components/ShowResultServer.js';
         expect(elfUtils.elfUtils.fileExists(fileName)).toBe(true);
     });
 

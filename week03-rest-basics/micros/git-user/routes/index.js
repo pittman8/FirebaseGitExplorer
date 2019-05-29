@@ -38,16 +38,16 @@ router.get('/git-user-get-user', (req, res) => {
         console.log('body:', body);
         res.send({ error: error, response: response, body: body });
     });
-
 });
 
 router.get('/git-user-get-user-repos', (request, response) => {
-    const type = "all";
-    myOctokit.repos.list({
-        type: 'all'
-    }).then(({ data }) => {
-        response.send({ result: data });
-    })
+    myOctokit.repos
+        .list({
+            type: 'all'
+        })
+        .then(({ data }) => {
+            response.send({ result: data });
+        });
 });
 
 module.exports = router;

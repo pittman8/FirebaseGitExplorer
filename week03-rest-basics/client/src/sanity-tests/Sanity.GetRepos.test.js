@@ -8,7 +8,10 @@ import { createShallow } from '@material-ui/core/test-utils';
 import Grid from '@material-ui/core/Grid';
 
 configure({ adapter: new Adapter() });
-const debug = process.env.REACT_APP_ELF_LOGGER === 'sanity-get-repos-test' ? console.log : () => {};
+const debug =
+    process.env.REACT_APP_ELF_LOGGER === 'sanity-get-repos-test'
+        ? console.log
+        : () => {};
 
 describe('Sanity GetRepos Layout Tests', () => {
     let wrapper = null;
@@ -62,16 +65,14 @@ describe('Sanity GetRepos Layout Tests', () => {
                 .find('div')
                 .first()
                 .props()
-                .className
-                .includes('backDiv3')
+                .className.includes('backDiv3')
         );
         expect(
             wrapper
                 .find('div')
                 .first()
                 .props()
-                .className
-                .includes('backDiv3')
+                .className.includes('backDiv3')
         ).toBe(false);
     });
 
