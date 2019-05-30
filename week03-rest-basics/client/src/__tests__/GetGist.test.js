@@ -7,24 +7,26 @@ configure({ adapter: new Adapter() });
 import { shallow } from 'enzyme';
 import Typography from '@material-ui/core/Typography';
 
-const renderGetGist = props => (
-    <GetGist
-        {...props}
-        queryServer={this.queryServer}
-        fetchGistList={this.fetchGistList}
-        gistList={this.state.gistList}
-    />
-);
 
 describe('GetGist Tests', function() {
     it('renders without crashing', () => {
         const div = document.createElement('div');
-        ReactDOM.render(renderGetGist, div);
+        ReactDOM.render(<GetGist
+            queryServer={() => {}}
+            fetchGistList={() => {}}
+            result={'success'}
+            gistList={[{ id: 3 }]}
+        />, div);
         ReactDOM.unmountComponentAtNode(div);
     });
 
-    xit('renders the component header', () => {
-        const wrapper = shallow(renderGetGist);
+    it('renders the component header', () => {
+        const wrapper = shallow(<GetGist
+            queryServer={() => {}}
+            fetchGistList={() => {}}
+            result={'success'}
+            gistList={[{ id: 3 }]}
+        />).dive();
         const unknown = (
             <Typography variant="h4">Get Gist Component</Typography>
         );

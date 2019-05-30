@@ -5,14 +5,18 @@ import GetUser from '../components/GetUser';
 import ReactDOM from 'react-dom';
 configure({ adapter: new Adapter() });
 
-const renderGetUser = props => (
-    <GetUser {...props} queryServer={this.queryServer} body={this.state.body} />
-);
-
 describe('GetUser Tests', function() {
     it('renders without crashing', () => {
         const div = document.createElement('div');
-        ReactDOM.render(renderGetUser, div);
+        ReactDOM.render(<GetUser
+            queryServer={() => {}}
+            result={'success'}
+            body={{
+                login: 'unknown',
+                id: 'unknown',
+                avatar_url: 'unknown'
+            }}
+        />, div);
         ReactDOM.unmountComponentAtNode(div);
     });
 });
