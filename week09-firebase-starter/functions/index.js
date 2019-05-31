@@ -1,7 +1,15 @@
 const functions = require('firebase-functions');
 const myRequest = require('request');
+const reqOctokit = require('@octokit/rest');
+
 const cors = require('cors')({
     origin: true,
+});
+
+const theOctokit = new reqOctokit({
+    auth: 'f55ec32610be4a2fcb392fce65d331df24a8f5d7',
+    type: 'token',
+    username: 'pittman8'
 });
 
 // // Create and Deploy Your First Cloud Functions
@@ -37,4 +45,16 @@ exports.getUser = functions.https.onRequest((req, res) => {
             res.send({error: error, response: response.statusCode, body: body});
         });
     });
+});
+
+exports.getRepos = functions.https.onRequest((request, response) => {
+    theOctokit.repos.
+        list({
+            type: 'all'
+        })
+        .then(({ data }) => {
+            return cors(request, response, () => {
+                response.send({ result: data });
+            });
+        });
 });
