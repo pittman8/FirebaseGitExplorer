@@ -8,7 +8,7 @@ export const appInit = {
         id: 'unknown',
         node_id: 'unknown',
         name: 'unknown',
-        avatar_url: 'unknown',
+        avatar_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Face-smile-big.svg/1200px-Face-smile-big.svg.png',
         bio: 'unknown',
         location: 'unknown',
         url: 'unknown'
@@ -20,7 +20,7 @@ export const appInit = {
             ownerLogin: 'unknown1',
             gitPullUrl: 'unknown1',
             files: 'unknown1',
-            avatarUrl: 'unknown'
+            avatarUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Face-smile-big.svg/1200px-Face-smile-big.svg.png'
         },
         {
             id: 'unknown2',
@@ -28,7 +28,7 @@ export const appInit = {
             ownerLogin: 'unknown2',
             gitPullUrl: 'unknown2',
             files: 'unknown2',
-            avatarUrl: 'unknown2'
+            avatarUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Face-smile-big.svg/1200px-Face-smile-big.svg.png'
         }
     ],
     repoList: [
