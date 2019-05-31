@@ -79,7 +79,7 @@ class App extends Component {
         const that = this;
         let id = event.currentTarget.id;
         let newRepoList = [];
-        console.log('fetchGistList()', id);
+        console.log('fetchRepoList()', id);
         fetch('/git-user-get-user-repos')
             .then(function(response) {
                 return response.json();
