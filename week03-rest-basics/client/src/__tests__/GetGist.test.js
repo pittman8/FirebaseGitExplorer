@@ -8,7 +8,7 @@ import { shallow } from 'enzyme';
 import Typography from '@material-ui/core/Typography';
 
 describe('GetGist Tests', function() {
-    xit('renders without crashing', () => {
+    it('renders without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(
             <GetGist
@@ -56,8 +56,8 @@ describe('GetGist Tests', function() {
                 fetchGistList={() => {}}
                 result={'success'}
                 gistList={[{ id: 1 }, { id: 2 }, { id: 3 }]}
-            />)
-            .dive();
+            />
+        ).dive();
         expect(wrapper.find('#prev').length).toBe(1);
         expect(wrapper.instance().state.index).toBeDefined();
         expect(wrapper.instance().state.index).toEqual(0);
@@ -72,8 +72,8 @@ describe('GetGist Tests', function() {
                 fetchGistList={() => {}}
                 result={'success'}
                 gistList={[{ id: 1 }, { id: 2 }, { id: 3 }]}
-            />)
-            .dive();
+            />
+        ).dive();
         expect(wrapper.find('#next').length).toBe(1);
         expect(wrapper.instance().state.index).toBeDefined();
         expect(wrapper.instance().state.index).toEqual(0);

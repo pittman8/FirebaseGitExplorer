@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom';
 configure({ adapter: new Adapter() });
 
 describe('TestRoutes Tests', function() {
-    xit('renders without crashing', () => {
+    it('renders without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(<TestRoutes appInit={appInit} />, div);
         ReactDOM.unmountComponentAtNode(div);

@@ -30,7 +30,7 @@ const repoWrapper = shallow(
 ).dive();
 
 describe('GetUser Tests', function() {
-    xit('renders without crashing', () => {
+    it('renders without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(
             <GetUser
@@ -68,13 +68,4 @@ describe('GetUser Tests', function() {
     it('found WithStyles in GetRepos', () => {
         repoWrapper.find('WithStyles(GetRepos)');
     });
-
-    // it('Test click event', () => {
-    //     // const jest = require('jest-mock');
-    //     // const mockCallBack = jest.fn();
-    //     //
-    //     // const button = shallow((<Button onClick={mockCallBack}>Ring Get User</Button>));
-    //     // button.find('button').simulate('click');
-    //     // expect(userWrapper).mockCallBack.toHaveBeenCalled();
-    // });
 });

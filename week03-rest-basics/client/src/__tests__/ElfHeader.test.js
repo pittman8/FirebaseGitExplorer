@@ -9,7 +9,7 @@ import List from '@material-ui/core/List';
 configure({ adapter: new Adapter() });
 
 describe('ElfHeader Tests', () => {
-    xit('renders without crashing', () => {
+    it('renders without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(
             <Router>
