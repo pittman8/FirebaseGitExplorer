@@ -1,0 +1,11 @@
+{
+  "plugins": [],
+  "presets": [
+
+  ],
+  "env": {
+    "test": {
+      "presets": []
+    }
+  }
+}
