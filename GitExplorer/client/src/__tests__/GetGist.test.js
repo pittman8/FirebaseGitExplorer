@@ -6,6 +6,8 @@ import ReactDOM from 'react-dom';
 configure({ adapter: new Adapter() });
 import { shallow } from 'enzyme';
 import Typography from '@material-ui/core/Typography';
+//import App from '../components/App';
+//import { appInit } from '../components/app-init';
 
 describe('GetGist Tests', function() {
     it('renders without crashing', () => {

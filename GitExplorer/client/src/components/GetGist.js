@@ -101,6 +101,7 @@ class GetGist extends Component {
                                 Ring Git Gist
                             </Button>
                             <Button
+                                id="fetch"
                                 variant="contained"
                                 color="primary"
                                 data-url="/git-gist-get-gist-list"

@@ -4,6 +4,8 @@ import App from '../components/App';
 import Adapter from 'enzyme-adapter-react-16';
 import { configure, shallow } from 'enzyme';
 import { appInit } from '../components/app-init';
+//import Typography from '@material-ui/core/Typography';
+//import GetGist from '../components/GetGist';
 configure({ adapter: new Adapter() });
 //import jest from 'jest';
 //jest.mock('../components/App');
@@ -20,44 +22,27 @@ describe('App Tests', function() {
         wrapper.dive().find('WithStyles(App)');
     });
 
-    // it('tests fetch call in fetchGistList', () => {
+    // it('proves button click works', () => {
     //     const jest = require('jest-mock');
-    //     const app = new App();
-    //     expect(App).toHaveBeenCalledTimes(1);
-    //     expect(setGistList).toHaveBeenCalledTimes(1);
+    //     const jestFunc = jest.fn();
+    //     const wrapper = shallow(<App appInit={appInit} />);
+    //     const wrapper2 = shallow(
+    //         <GetGist
+    //             queryServer={() => {}}
+    //             fetchGistList={() => {}}
+    //             result={'success'}
+    //             gistList={[{ id: 1 }, { id: 2 }, { id: 3 }]}
+    //         />
+    //     ).dive();
+    //     wrapper.instance().fetchGistList = jestFunc;
+    //     wrapper2.find('#fetch').simulate('click');
+    //     expect(jestFunc).toHaveBeenCalledTimes(1)
+    // });
 
-    //     window.fetch = jest.fn().mockImplementation(() => ({
-    //         status: 200,
-    //         json: () => new Promise((resolve, reject) => {
-    //             resolve({
-    //                 gistList: [
-    //                     {
-    //                         id: 'unknown1',
-    //                         description: 'unknown1',
-    //                         ownerLogin: 'unknown1',
-    //                         gitPullUrl: 'unknown1',
-    //                         files: 'unknown1',
-    //                         avatarUrl:
-    //                             'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Face-smile-big.svg/1200px-Face-smile-big.svg.png'
-    //                     },
-    //                     {
-    //                         id: 'unknown2',
-    //                         description: 'unknown2',
-    //                         ownerLogin: 'unknown2',
-    //                         gitPullUrl: 'unknown2',
-    //                         files: 'unknown2',
-    //                         avatarUrl:
-    //                             'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Face-smile-big.svg/1200px-Face-smile-big.svg.png'
-    //                     }
-    //                 ]
-    //             })
-    //         })
-    //     }))
-    //     const renderedComponent = await shallow(<App appInit={appInit} />)
-    //     await renderedComponent.fetchGistList
-    //     const unknown = JSON.stringify(renderedComponent.instance().props.appInit.gistList[0].avatarUrl);
-    //     expect(renderedComponent.contains(unknown)).toBeTruthy();
-    //     console.log(JSON.stringify(renderedComponent.instance().props.appInit.gistList[0].avatarUrl))
-    // })
-    //});
+    // it('should call setGistList with valid JSON causing component refresh', () => {
+    //     const wrapper = shallow(<App appInit={appInit} />);
+    //     const result = <Typography>owner login: pittman8</Typography>;
+    //     wrapper.instance().setGistList({gistList: ['ownerLogin: pittman8']});
+    //     expect(wrapper.contains(result)).toEqual(true);
+    // });
 });
