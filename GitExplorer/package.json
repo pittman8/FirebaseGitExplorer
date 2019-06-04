@@ -1,0 +1,34 @@
+{
+  "name": "lookup-server",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "@octokit/rest": "^16.25.6",
+    "enzyme-adapter-react-16": "^1.12.1",
+    "express": "4.16.4",
+    "prop-types": "^15.7.2"
+  },
+  "scripts": {
+    "start": "concurrently 'npm run server' 'npm run qux' 'npm run git-gist' 'npm run git-user' 'npm run client'",
+    "server": "nodemon server/bin/www",
+    "qux": "nodemon micros/qux/bin/www",
+    "git-gist": "nodemon micros/git-gist/bin/www",
+    "git-user": "nodemon micros/git-user/bin/www",
+    "client": "babel-node start-client.js",
+    "lint": "eslint .",
+    "test": "echo 'The project tests are not here. Navigate into project-sanity-tests and run npm test'"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "babel-eslint": "^10.0.1",
+    "concurrently": "^4.1.0",
+    "eslint": "^5.16.0",
+    "eslint-config-google": "^0.12.0",
+    "eslint-plugin-import": "2.17.2",
+    "eslint-plugin-jsx-a11y": "6.2.1",
+    "eslint-plugin-react": "7.12.4"
+  }
+}

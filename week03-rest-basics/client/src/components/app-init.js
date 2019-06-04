@@ -8,7 +8,8 @@ export const appInit = {
         id: 'unknown',
         node_id: 'unknown',
         name: 'unknown',
-        avatar_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Face-smile-big.svg/1200px-Face-smile-big.svg.png',
+        avatar_url:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Face-smile-big.svg/1200px-Face-smile-big.svg.png',
         bio: 'unknown',
         location: 'unknown',
         url: 'unknown'
