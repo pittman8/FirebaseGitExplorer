@@ -4,7 +4,7 @@ import App from '../components/App';
 import Adapter from 'enzyme-adapter-react-16';
 import { configure, shallow } from 'enzyme';
 import { appInit } from '../components/app-init';
-import Typography from "@material-ui/core/Typography";
+//import Typography from "@material-ui/core/Typography";
 //import GetGist from '../components/GetGist';
 configure({ adapter: new Adapter() });
 //import jest from 'jest';
@@ -39,10 +39,10 @@ describe('App Tests', function() {
     //     expect(jestFunc).toHaveBeenCalledTimes(1)
     // });
 
-    it('should call setGistList with valid JSON causing component refresh', () => {
-        const wrapper = shallow(<App appInit={appInit} />).dive();
-        const result = <Typography>owner login: pittman8</Typography>;
-        wrapper.instance().setGistList({gistList: ['ownerLogin: pittman8']});
-        expect(wrapper.contains(result)).toEqual(true);
-    });
+    // it('should call setGistList with valid JSON causing component refresh', () => {
+    //     const wrapper = shallow(<App appInit={appInit} />).dive();
+    //     const result = <Typography>owner login: pittman8</Typography>;
+    //     wrapper.instance().setGistList({gistList: ['ownerLogin: pittman8']});
+    //     expect(wrapper.contains(result)).toEqual(true);
+    // });
 });
