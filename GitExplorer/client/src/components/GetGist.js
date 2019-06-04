@@ -95,7 +95,7 @@ class GetGist extends Component {
                             <Button
                                 variant="contained"
                                 color="primary"
-                                data-url="/git-gist-you-rang"
+                                data-url="/gists/git-gist-you-rang"
                                 onClick={this.props.queryServer}
                             >
                                 Ring Git Gist
@@ -104,7 +104,7 @@ class GetGist extends Component {
                                 id="fetch"
                                 variant="contained"
                                 color="primary"
-                                data-url="/git-gist-get-gist-list"
+                                data-url="/gists/git-gist-get-gist-list"
                                 onClick={this.props.fetchGistList}
                             >
                                 Fetch Gist List

@@ -104,7 +104,7 @@ class GetRepos extends Component {
                             <Button
                                 variant="contained"
                                 color="primary"
-                                data-url="https://us-central1-isit322-pittman.cloudfunctions.net/youRang"
+                                data-url="/users/git-user-you-rang"
                                 onClick={this.props.queryServer}
                             >
                                 Ring Git User
@@ -142,7 +142,7 @@ class GetRepos extends Component {
                                 variant="contained"
                                 color="primary"
                                 className={classes.button}
-                                data-url="https://us-central1-isit322-pittman.cloudfunctions.net/getRepos"
+                                data-url="/users/git-user-get-user-repos"
                                 onClick={event =>
                                     this.props.fetchRepoList(event)
                                 }
@@ -154,7 +154,7 @@ class GetRepos extends Component {
                                 variant="contained"
                                 color="primary"
                                 className={classes.button}
-                                data-url="https://us-central1-isit322-pittman.cloudfunctions.net/getRepos"
+                                data-url="/users/git-user-get-user-repos"
                                 onClick={event =>
                                     this.props.fetchRepoList(event)
                                 }
@@ -166,7 +166,7 @@ class GetRepos extends Component {
                                 variant="contained"
                                 color="primary"
                                 className={classes.button}
-                                data-url="https://us-central1-isit322-pittman.cloudfunctions.net/getRepos"
+                                data-url="/users/git-user-get-user-repos"
                                 onClick={event =>
                                     this.props.fetchRepoList(event)
                                 }
