@@ -80,7 +80,7 @@ class App extends Component {
         let id = event.currentTarget.id;
         let newRepoList = [];
         console.log('fetchRepoList()', id);
-        fetch('/git-user-get-user-repos')
+        fetch(event.currentTarget.dataset.url)
             .then(function(response) {
                 return response.json();
             })

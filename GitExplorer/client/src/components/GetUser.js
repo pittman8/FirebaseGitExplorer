@@ -59,7 +59,7 @@ class GetUser extends Component {
                             <Button
                                 variant="contained"
                                 color="primary"
-                                data-url="/git-user-you-rang"
+                                data-url="https://us-central1-isit322-pittman.cloudfunctions.net/youRang"
                                 onClick={this.props.queryServer}
                             >
                                 Ring Get User
@@ -67,7 +67,7 @@ class GetUser extends Component {
                             <Button
                                 variant="contained"
                                 color="primary"
-                                data-url="/git-user-get-user"
+                                data-url="https://us-central1-isit322-pittman.cloudfunctions.net/getUser"
                                 onClick={this.props.queryServer}
                             >
                                 Get User
