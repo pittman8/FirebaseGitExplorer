@@ -4,6 +4,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
+import StarIcon from '@material-ui/icons/Star';
 import SendIcon from '@material-ui/icons/Send';
 import { Link } from 'react-router-dom';
 
@@ -36,6 +37,13 @@ export const gitItems = (
 
 export const demoItems = (
     <div>
+        <ListItemLink button component={Link} to="/login">
+            <ListItemIcon>
+                <StarIcon />
+            </ListItemIcon>
+            <ListItemText primary="Firebase Login" />
+        </ListItemLink>
+
         <ListItemLink button component={Link} to="/qux">
             <ListItemIcon>
                 <DraftsIcon />
