@@ -37,19 +37,27 @@ export const FirebaseLogin = function({ queryServerLogin }) {
 
     return (
         <div>
-            <Typography variant="body1" gutterBottom>
-                {currentUser.displayName || 'logged out'}
-            </Typography>
+            <Paper>
+                <Typography variant="h5">
+                    Current User Information
+                </Typography>
+            </Paper>
+            <br />
+            <Paper>
+                <Typography variant="body1" gutterBottom>
+                    Name: {currentUser.displayName || 'logged out'}
+                </Typography>
 
-            <Typography variant="body1" gutterBottom>
-                {currentUser.email}
-            </Typography>
+                <Typography variant="body1" gutterBottom>
+                    Email: {currentUser.email}
+                </Typography>
 
-            <Typography variant="body1" gutterBottom>
-                {currentUser.providerId}
-            </Typography>
+                <Typography variant="body1" gutterBottom>
+                    Provider ID: {currentUser.providerId}
+                </Typography>
 
-            <img src={currentUser.photoURL} alt="user" width="100" height="100" />
+                <img src={currentUser.photoURL} alt="user" width="100" height="100" />
+            </Paper>
             <Paper>
                 <Button
                     variant="contained"

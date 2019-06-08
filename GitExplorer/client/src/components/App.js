@@ -119,10 +119,8 @@ class App extends Component {
             });
     };
 
-    setData = () => {
-        return console.log(
-            'setData function for testing: setData is in GetGist and RetRepo components'
-        );
+    setData = (json) => {
+        console.log(json);
     };
 
     getFirebaseToken = () => {
