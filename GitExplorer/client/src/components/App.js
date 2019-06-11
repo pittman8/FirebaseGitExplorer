@@ -14,7 +14,7 @@ import { styles } from './elf-styles';
 import { ShowResultServer } from './ShowResultServer';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import { FirebaseLogin } from "./FirebaseLogin";
+import { FirebaseLogout } from "./FirebaseLogout";
 
 class App extends Component {
     constructor(props) {
@@ -152,6 +152,10 @@ class App extends Component {
                         return response.json();
                     })
                     .then(json => {
+                        if (json.body) {
+                            json.body = JSON.parse(json.body);
+                        }
+                        this.setState(json);
                         this.setData(json);
                     })
                     .catch(function(ex) {
@@ -192,7 +196,7 @@ class App extends Component {
                     <Route
                         path="/qux"
                         render={props => (
-                            <Qux {...props} queryServer={this.queryServer} />
+                            <Qux {...props} queryServerLogin={this.queryServerLogin} />
                         )}
                     />
 
@@ -230,15 +234,9 @@ class App extends Component {
                             />
                         )}
                     />
-
                     <Route
-                        path="/login"
-                        render={props => (
-                            <FirebaseLogin
-                                {...props}
-                                queryServerLogin={this.queryServerLogin}
-                            />
-                        )}
+                        path="/firebaseLogout"
+                        component={ FirebaseLogout }
                     />
 
                 </div>

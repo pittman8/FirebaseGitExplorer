@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const verify = require('./verify');
+const {verifyToken} = require('./verify-db');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
 
 router.get('/test-verify', (request, response) => {
     console.log('TEST VERIFY CALLED', request.query);
-    verify(request.query.token)
+    verifyToken(request.query.token)
         .then(decodedToken => {
             response.send({result: 'Verified!', decodedToken: decodedToken})
         })

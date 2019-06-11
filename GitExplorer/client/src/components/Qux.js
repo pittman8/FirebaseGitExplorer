@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const Qux = ({ queryServer }) => (
-    <button data-url="/qux/qux-you-rang" onClick={queryServer}>
+export const Qux = ({ queryServerLogin }) => (
+    <button data-url="/qux/qux-you-rang" onClick={queryServerLogin}>
         Ring Qux
     </button>
 );

@@ -2,9 +2,8 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
-import PropTypes from "prop-types";
 
-export const FirebaseLogin = function({ queryServerLogin }) {
+export const FirebaseLogout = function() {
     let currentUser = window.firebase.auth().currentUser;
 
     if (!currentUser) {
@@ -30,10 +29,6 @@ export const FirebaseLogin = function({ queryServerLogin }) {
                 }
             );
     }
-
-    function login () {
-        window.open('elf-sign-in.html')
-    };
 
     return (
         <div>
@@ -62,21 +57,6 @@ export const FirebaseLogin = function({ queryServerLogin }) {
                 <Button
                     variant="contained"
                     color="primary"
-                    onClick={login}
-                >
-                    Login
-                </Button>
-                <Button
-                    variant="contained"
-                    color="primary"
-                    data-url="/test-verify"
-                    onClick={queryServerLogin}
-                >
-                    Verify
-                </Button>
-                <Button
-                    variant="contained"
-                    color="primary"
                     data-url="/git-gist-you-rang"
                     onClick={signOut}
                 >
@@ -85,9 +65,4 @@ export const FirebaseLogin = function({ queryServerLogin }) {
             </Paper>
         </div>
     );
-};
-
-FirebaseLogin
-    .propTypes = {
-    queryServerLogin: PropTypes.func
 };

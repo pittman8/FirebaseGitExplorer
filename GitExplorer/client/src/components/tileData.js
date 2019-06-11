@@ -6,6 +6,7 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
 import StarIcon from '@material-ui/icons/Star';
 import SendIcon from '@material-ui/icons/Send';
+import HomeIcon from '@material-ui/icons/Home';
 import { Link } from 'react-router-dom';
 
 function ListItemLink(props) {
@@ -14,6 +15,24 @@ function ListItemLink(props) {
 
 export const gitItems = (
     <div>
+        <ListItemLink button component={Link} to="/">
+            <ListItemIcon>
+                <HomeIcon />
+            </ListItemIcon>
+            <ListItemText primary="Home" />
+        </ListItemLink>
+        <ListItemLink button component="a" href="elf-sign-in.html">
+            <ListItemIcon>
+                <StarIcon />
+            </ListItemIcon>
+            <ListItemText primary="Login" />
+        </ListItemLink>
+        <ListItemLink button component={Link} to="/firebaseLogout">
+            <ListItemIcon>
+                <DraftsIcon />
+            </ListItemIcon>
+            <ListItemText primary="Firebase Logout" />
+        </ListItemLink>
         <ListItem button component={Link} to="/get-user">
             <ListItemIcon>
                 <InboxIcon />
@@ -37,13 +56,6 @@ export const gitItems = (
 
 export const demoItems = (
     <div>
-        <ListItemLink button component={Link} to="/login">
-            <ListItemIcon>
-                <StarIcon />
-            </ListItemIcon>
-            <ListItemText primary="Firebase Login" />
-        </ListItemLink>
-
         <ListItemLink button component={Link} to="/qux">
             <ListItemIcon>
                 <DraftsIcon />
