@@ -205,7 +205,7 @@ class App extends Component {
                         render={props => (
                             <GetUser
                                 {...props}
-                                queryServer={this.queryServer}
+                                queryServerLogin={this.queryServerLogin}
                                 body={this.state.body}
                             />
                         )}

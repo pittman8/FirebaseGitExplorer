@@ -60,7 +60,7 @@ class GetUser extends Component {
                                 variant="contained"
                                 color="primary"
                                 data-url="/users/git-user-you-rang"
-                                onClick={this.props.queryServer}
+                                onClick={this.props.queryServerLogin}
                             >
                                 Ring Get User
                             </Button>
@@ -81,7 +81,7 @@ class GetUser extends Component {
 }
 
 GetUser.propTypes = {
-    queryServer: PropTypes.func,
+    queryServerLogin: PropTypes.func,
     body: PropTypes.object,
     classes: PropTypes.object.isRequired
 };
