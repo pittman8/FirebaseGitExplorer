@@ -96,7 +96,7 @@ class GetGist extends Component {
                                 variant="contained"
                                 color="primary"
                                 data-url="/gists/git-gist-you-rang"
-                                onClick={this.props.queryServer}
+                                onClick={this.props.queryServerLogin}
                             >
                                 Ring Git Gist
                             </Button>
@@ -139,7 +139,7 @@ class GetGist extends Component {
 
 GetGist.propTypes = {
     setData: PropTypes.func,
-    queryServer: PropTypes.func,
+    queryServerLogin: PropTypes.func,
     fetchGistList: PropTypes.func,
     gistList: PropTypes.array,
     classes: PropTypes.object.isRequired

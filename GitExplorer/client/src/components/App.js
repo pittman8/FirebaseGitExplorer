@@ -228,7 +228,7 @@ class App extends Component {
                         render={props => (
                             <GetGist
                                 {...props}
-                                queryServer={this.queryServer}
+                                queryServerLogin={this.queryServerLogin}
                                 fetchGistList={this.fetchGistList}
                                 gistList={this.state.gistList}
                             />

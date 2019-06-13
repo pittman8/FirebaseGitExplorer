@@ -1,14 +1,15 @@
 var admin = require('firebase-admin');
+const credentialLoad=require('./credentials');
 
 let loggedIn = false;
 
-//'firebase-adminsdk-2p1h1@prog270-calvert.iam.gserviceaccount.com';
 function init() {
     loggedIn = true;
-    const firebaseApp = admin.initializeApp({
-        credential: admin.credential.applicationDefault(),
-    });
-    console.log('INITIALIZE FIREBASE ADMIN', firebaseApp);
+    if (admin.apps.length === 0) {
+        admin.initializeApp({
+            credential: admin.credential.cert(credentialLoad)
+        });
+    }
     return admin.firestore();
 }
 
