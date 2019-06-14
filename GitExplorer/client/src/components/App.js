@@ -2,18 +2,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../css/App.css';
 import 'whatwg-fetch';
-import { Qux } from './Qux';
+import Qux from './Qux';
 import GetGist from './GetGist';
-import { TestRoutes } from './TestRoutes';
+import TestRoutes from './TestRoutes';
 import GetUser from './GetUser';
 import GetRepos from './GetRepos';
 import ElfHeader from './ElfHeader';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from './elf-styles';
-import { ShowResultServer } from './ShowResultServer';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
 import { FirebaseLogout } from "./FirebaseLogout";
 
 class App extends Component {
@@ -146,20 +143,13 @@ class App extends Component {
     };
 
     render() {
-        const { classes } = this.props;
+        //const { classes } = this.props;
         return (
             <BrowserRouter>
                 <div className="App">
                     <ElfHeader />
-                    <br />
-                    <Grid item xs={12}>
-                        <Paper className={classes.paperLion}>
-                            <ShowResultServer
-                                result={this.state.result}
-                                server={this.state.server}
-                            />
-                        </Paper>
-                    </Grid>
+                    {/*<h2>Welcome to the Home Page</h2>*/}
+                    {/*<h4>Please select from the menu above to navigate this site</h4>*/}
                     <br />
                     <Route
                         path="/test-routes"
@@ -167,6 +157,8 @@ class App extends Component {
                             <TestRoutes
                                 {...props}
                                 queryServerLogin={this.queryServerLogin}
+                                result={this.state.result}
+                                server={this.state.server}
                             />
                         )}
                     />
@@ -174,7 +166,12 @@ class App extends Component {
                     <Route
                         path="/qux"
                         render={props => (
-                            <Qux {...props} queryServerLogin={this.queryServerLogin} />
+                            <Qux
+                                {...props}
+                                queryServerLogin={this.queryServerLogin}
+                                result={this.state.result}
+                                server={this.state.server}
+                            />
                         )}
                     />
 
@@ -185,6 +182,8 @@ class App extends Component {
                                 {...props}
                                 queryServerLogin={this.queryServerLogin}
                                 body={this.state.body}
+                                result={this.state.result}
+                                server={this.state.server}
                             />
                         )}
                     />
@@ -197,6 +196,8 @@ class App extends Component {
                                 queryServerLogin={this.queryServerLogin}
                                 fetchRepoList={this.fetchRepoList}
                                 repoList={this.state.repoList}
+                                result={this.state.result}
+                                server={this.state.server}
                             />
                         )}
                     />
@@ -209,6 +210,8 @@ class App extends Component {
                                 queryServerLogin={this.queryServerLogin}
                                 fetchGistList={this.fetchGistList}
                                 gistList={this.state.gistList}
+                                result={this.state.result}
+                                server={this.state.server}
                             />
                         )}
                     />
@@ -218,6 +221,9 @@ class App extends Component {
                     />
 
                 </div>
+                <br />
+                <p align="center"><b>Copyright © Hannah Pittman</b></p>
+                <p align="center"><b>ISIT 322 Spring 2019 Professor Charlie Calvert</b></p>
             </BrowserRouter>
         );
     }

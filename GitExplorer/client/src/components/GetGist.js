@@ -7,6 +7,7 @@ import { styles } from './elf-styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import {ShowResultServer} from "./ShowResultServer";
 
 class GetGist extends Component {
     constructor(props) {
@@ -49,7 +50,24 @@ class GetGist extends Component {
                             </Typography>
                         </Paper>
                     </Grid>
-                    <br />
+                    <Grid item xs={12}>
+                        <Paper className={classes.paperLion}>
+                            <ShowResultServer
+                                result={this.props.result}
+                                server={this.props.server}
+                            />
+                        </Paper>
+                        <Paper className={classes.paperLion}>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                data-url="/gists/git-gist-you-rang"
+                                onClick={this.props.queryServerLogin}
+                            >
+                                Ring Git Gist
+                            </Button>
+                        </Paper>
+                    </Grid>
                     <Paper className={classes.paperLion}>
                         <div className={classes.layout}>
                             <Typography id="description" variant="h6">
@@ -92,14 +110,6 @@ class GetGist extends Component {
                     <br />
                     <Grid item xs={12}>
                         <Paper className={classes.paperLion}>
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                data-url="/gists/git-gist-you-rang"
-                                onClick={this.props.queryServerLogin}
-                            >
-                                Ring Git Gist
-                            </Button>
                             <Button
                                 id="fetch"
                                 variant="contained"

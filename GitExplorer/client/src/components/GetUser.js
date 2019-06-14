@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import {ShowResultServer} from "./ShowResultServer";
 
 class GetUser extends Component {
     render() {
@@ -20,7 +21,24 @@ class GetUser extends Component {
                             </Typography>
                         </Paper>
                     </Grid>
-                    <br />
+                    <Grid item xs={12}>
+                        <Paper className={classes.paperLion}>
+                            <ShowResultServer
+                                result={this.props.result}
+                                server={this.props.server}
+                            />
+                        </Paper>
+                        <Paper className={classes.paperLion}>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                data-url="/users/git-user-you-rang"
+                                onClick={this.props.queryServerLogin}
+                            >
+                                Ring Get User
+                            </Button>
+                        </Paper>
+                    </Grid>
                     <Paper className={classes.paperLion}>
                         <div className={classes.layout}>
                             <Typography id="login" variant="h6">
@@ -56,14 +74,6 @@ class GetUser extends Component {
                     <br />
                     <Grid item xs={12}>
                         <Paper className={classes.paperLion}>
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                data-url="/users/git-user-you-rang"
-                                onClick={this.props.queryServerLogin}
-                            >
-                                Ring Get User
-                            </Button>
                             <Button
                                 variant="contained"
                                 color="primary"
