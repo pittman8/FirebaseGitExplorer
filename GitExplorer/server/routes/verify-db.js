@@ -1,5 +1,5 @@
 var admin = require('firebase-admin');
-const credentialLoad=require('./credentials');
+const credentialLoad = require('./credentials');
 
 let loggedIn = false;
 
@@ -32,5 +32,5 @@ function verifyToken(token, url) {
     });
 }
 
-module.exports.verifyToken=verifyToken;
-module.exports.init=init;
+module.exports.verifyToken = verifyToken;
+module.exports.init = init;

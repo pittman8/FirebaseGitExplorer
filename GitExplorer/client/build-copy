@@ -5,7 +5,7 @@ YELLOW='\033[1;33m'
 BLUE='\033[1;36m'
 NC='\033[0m' # No Color
 
-SERVER_DIR="${HOME}/Git/isit322-pittman-2019/week09-firebase-starter/public"
+SERVER_DIR="${HOME}/Git/isit322-pittman-2019/FirebaseGitExplorer/public"
 
 function message {
     echo

@@ -11,7 +11,7 @@ import ElfHeader from './ElfHeader';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from './elf-styles';
-import { FirebaseLogout } from "./FirebaseLogout";
+import { FirebaseLogout } from './FirebaseLogout';
 
 class App extends Component {
     constructor(props) {
@@ -94,7 +94,7 @@ class App extends Component {
             });
     };
 
-    setData = (json) => {
+    setData = json => {
         console.log(json);
     };
 
@@ -134,7 +134,10 @@ class App extends Component {
                         this.setData(json);
                     })
                     .catch(function(ex) {
-                        console.log('parsing failed, URL bad, network down, or similar', ex);
+                        console.log(
+                            'parsing failed, URL bad, network down, or similar',
+                            ex
+                        );
                     });
             })
             .catch(err => {
@@ -215,15 +218,15 @@ class App extends Component {
                             />
                         )}
                     />
-                    <Route
-                        path="/firebaseLogout"
-                        component={ FirebaseLogout }
-                    />
-
+                    <Route path="/firebaseLogout" component={FirebaseLogout} />
                 </div>
                 <br />
-                <p align="center"><b>Copyright © Hannah Pittman</b></p>
-                <p align="center"><b>ISIT 322 Spring 2019 Professor Charlie Calvert</b></p>
+                <p align="center">
+                    <b>Copyright © Hannah Pittman</b>
+                </p>
+                <p align="center">
+                    <b>ISIT 322 Spring 2019 Professor Charlie Calvert</b>
+                </p>
             </BrowserRouter>
         );
     }

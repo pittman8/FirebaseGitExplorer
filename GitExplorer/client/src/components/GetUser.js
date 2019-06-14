@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import {ShowResultServer} from "./ShowResultServer";
+import { ShowResultServer } from './ShowResultServer';
 
 class GetUser extends Component {
     render() {
@@ -93,7 +93,9 @@ class GetUser extends Component {
 GetUser.propTypes = {
     queryServerLogin: PropTypes.func,
     body: PropTypes.object,
-    classes: PropTypes.object.isRequired
+    classes: PropTypes.object.isRequired,
+    result: PropTypes.object.isRequired,
+    server: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(GetUser);

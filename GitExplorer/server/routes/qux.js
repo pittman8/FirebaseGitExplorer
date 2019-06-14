@@ -12,7 +12,7 @@ router.get('/qux-you-rang', function(request, response) {
         .catch(ex => {
             console.log('COULD NOT VERIFY TOKEN');
             response.send(ex);
-        })
+        });
 });
 
 module.exports = router;

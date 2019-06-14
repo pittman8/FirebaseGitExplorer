@@ -12,9 +12,9 @@ export const FirebaseLogout = function() {
             email: 'unknown',
             providerId: 'unknown',
             photoURL: 'unknown'
-        }
+        };
     }
-    
+
     function signOut() {
         window.firebase
             .auth()
@@ -33,9 +33,7 @@ export const FirebaseLogout = function() {
     return (
         <div>
             <Paper>
-                <Typography variant="h5">
-                    Current User Information
-                </Typography>
+                <Typography variant="h5">Current User Information</Typography>
             </Paper>
             <br />
             <Paper>
@@ -51,7 +49,12 @@ export const FirebaseLogout = function() {
                     Provider ID: {currentUser.providerId}
                 </Typography>
 
-                <img src={currentUser.photoURL} alt="user" width="100" height="100" />
+                <img
+                    src={currentUser.photoURL}
+                    alt="user"
+                    width="100"
+                    height="100"
+                />
             </Paper>
             <Paper>
                 <Button

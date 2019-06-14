@@ -10,13 +10,13 @@
 // find the Settings Gear, choose Project Settings, and scroll down a bit.
 
 const firebaseConfig = {
-    apiKey: "AIzaSyChl6-CVqr_DxtTo2LRSW57jd0TzLlo2T8",
-    authDomain: "isit322-pittman.firebaseapp.com",
-    databaseURL: "https://isit322-pittman.firebaseio.com",
-    projectId: "isit322-pittman",
-    storageBucket: "isit322-pittman.appspot.com",
-    messagingSenderId: "887223801674",
-    appId: "1:887223801674:web:515c379d15f41019"
+    apiKey: 'AIzaSyChl6-CVqr_DxtTo2LRSW57jd0TzLlo2T8',
+    authDomain: 'isit322-pittman.firebaseapp.com',
+    databaseURL: 'https://isit322-pittman.firebaseio.com',
+    projectId: 'isit322-pittman',
+    storageBucket: 'isit322-pittman.appspot.com',
+    messagingSenderId: '887223801674',
+    appId: '1:887223801674:web:515c379d15f41019'
 };
 // Initialize Firebase
 window.firebase.initializeApp(firebaseConfig);
@@ -38,12 +38,14 @@ const initApp = function() {
 
                 // getIdToken passes accessToken to it's call back but I don't include it since we don't use it
                 user.getIdToken().then(function() {
-                    document.getElementById('sign-in-status').textContent = 'Signed in';
+                    document.getElementById('sign-in-status').textContent =
+                        'Signed in';
                     document.getElementById('sign-in').textContent = '';
                 });
             } else {
                 // User is signed out.
-                document.getElementById('sign-in-status').textContent = 'Status: Signed out';
+                document.getElementById('sign-in-status').textContent =
+                    'Status: Signed out';
                 document.getElementById('sign-in').textContent = '';
                 document.getElementById('account-details').textContent = '';
                 //document.getElementById('sign-out').style.visibility = 'hidden';

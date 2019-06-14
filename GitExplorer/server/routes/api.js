@@ -15,12 +15,11 @@ router.get('/foo', function(request, response) {
     verifyToken(request.query.token)
         .then(() => {
             requester('http://localhost:30026/api/foo').pipe(response);
-
         })
         .catch(ex => {
             console.log('COULD NOT VERIFY TOKEN');
             response.send(ex);
-        })
+        });
 });
 
 module.exports = router;

@@ -7,7 +7,7 @@ import { styles } from './elf-styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import {ShowResultServer} from "./ShowResultServer";
+import { ShowResultServer } from './ShowResultServer';
 
 class GetGist extends Component {
     constructor(props) {
@@ -152,7 +152,9 @@ GetGist.propTypes = {
     queryServerLogin: PropTypes.func,
     fetchGistList: PropTypes.func,
     gistList: PropTypes.array,
-    classes: PropTypes.object.isRequired
+    classes: PropTypes.object.isRequired,
+    result: PropTypes.object.isRequired,
+    server: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(GetGist);

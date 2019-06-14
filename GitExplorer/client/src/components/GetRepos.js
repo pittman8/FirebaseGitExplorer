@@ -6,7 +6,7 @@ import Paper from '@material-ui/core/Paper';
 import PropTypes from 'prop-types';
 import { styles } from './elf-styles';
 import Grid from '@material-ui/core/Grid';
-import {ShowResultServer} from "./ShowResultServer";
+import { ShowResultServer } from './ShowResultServer';
 
 class GetRepos extends Component {
     constructor(props) {
@@ -194,7 +194,9 @@ GetRepos.propTypes = {
     queryServerLogin: PropTypes.func,
     classes: PropTypes.object.isRequired,
     fetchRepoList: PropTypes.func,
-    repoList: PropTypes.array
+    repoList: PropTypes.array,
+    result: PropTypes.object.isRequired,
+    server: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(GetRepos);

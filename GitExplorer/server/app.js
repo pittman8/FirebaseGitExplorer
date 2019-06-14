@@ -11,7 +11,6 @@ var getGist = require('./routes/get-gist');
 var getUser = require('./routes/get-user');
 var qux = require('./routes/qux');
 
-
 var app = express();
 
 // view engine setup

@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
-import {ShowResultServer} from "./ShowResultServer";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import {withStyles} from "@material-ui/core";
-import {styles} from "./elf-styles";
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import { ShowResultServer } from './ShowResultServer';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core';
+import { styles } from './elf-styles';
 
 class TestRoutes extends Component {
     render() {
@@ -41,12 +41,15 @@ class TestRoutes extends Component {
                     </Paper>
                 </Grid>
             </React.Fragment>
-        )
+        );
     }
 }
 
 TestRoutes.propTypes = {
-    queryServerLogin: PropTypes.func
+    queryServerLogin: PropTypes.func,
+    classes: PropTypes.object.isRequired,
+    result: PropTypes.object.isRequired,
+    server: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(TestRoutes);
