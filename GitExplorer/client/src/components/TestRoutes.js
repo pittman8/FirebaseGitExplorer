@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const TestRoutes = ({ queryServer }) => (
-    <button data-url="/test-routes/api/foo" onClick={queryServer}>
+export const TestRoutes = ({ queryServerLogin }) => (
+    <button data-url="/test-routes/api/foo" onClick={queryServerLogin}>
         Test Foo Route
     </button>
 );

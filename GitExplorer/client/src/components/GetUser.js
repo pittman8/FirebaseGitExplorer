@@ -68,7 +68,7 @@ class GetUser extends Component {
                                 variant="contained"
                                 color="primary"
                                 data-url="/users/git-user-get-user"
-                                onClick={this.props.queryServer}
+                                onClick={this.props.queryServerLogin}
                             >
                                 Get User
                             </Button>

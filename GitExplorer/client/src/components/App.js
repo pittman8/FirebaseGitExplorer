@@ -22,28 +22,6 @@ class App extends Component {
         this.state = props.appInit;
     }
 
-    queryServer = event => {
-        const that = this;
-
-        fetch(event.currentTarget.dataset.url)
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(json) {
-                console.log('parsed json', json);
-                if (json.body) {
-                    json.body = JSON.parse(json.body);
-                }
-                that.setState(json);
-            })
-            .catch(function(ex) {
-                console.log(
-                    'parsing failed, URL bad, network down, or similar',
-                    ex
-                );
-            });
-    };
-
     setGistList = json => {
         console.log('parsed json', json);
         this.setState(function() {
@@ -188,7 +166,7 @@ class App extends Component {
                         render={props => (
                             <TestRoutes
                                 {...props}
-                                queryServer={this.queryServer}
+                                queryServerLogin={this.queryServerLogin}
                             />
                         )}
                     />
@@ -216,7 +194,7 @@ class App extends Component {
                         render={props => (
                             <GetRepos
                                 {...props}
-                                queryServer={this.queryServer}
+                                queryServerLogin={this.queryServerLogin}
                                 fetchRepoList={this.fetchRepoList}
                                 repoList={this.state.repoList}
                             />
@@ -246,7 +224,7 @@ class App extends Component {
 }
 
 App.propTypes = {
-    queryServer: PropTypes.func,
+    queryServerLogin: PropTypes.func,
     fetchGistList: PropTypes.func,
     setGistList: PropTypes.func,
     setRepoList: PropTypes.func,

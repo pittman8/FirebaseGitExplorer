@@ -105,7 +105,7 @@ class GetRepos extends Component {
                                 variant="contained"
                                 color="primary"
                                 data-url="/users/git-user-you-rang"
-                                onClick={this.props.queryServer}
+                                onClick={this.props.queryServerLogin}
                             >
                                 Ring Git User
                             </Button>
@@ -182,7 +182,7 @@ class GetRepos extends Component {
 }
 
 GetRepos.propTypes = {
-    queryServer: PropTypes.func,
+    queryServerLogin: PropTypes.func,
     classes: PropTypes.object.isRequired,
     fetchRepoList: PropTypes.func,
     repoList: PropTypes.array

@@ -8,5 +8,5 @@ export const Qux = ({ queryServerLogin }) => (
 );
 
 Qux.propTypes = {
-    queryServer: PropTypes.func
+    queryServerLogin: PropTypes.func
 };

@@ -16,7 +16,15 @@ router.get('/git-user-you-rang', function(request, response) {
 });
 
 router.get('/git-user-get-user', function(request, response) {
-    requester('http://localhost:30028/git-user-get-user').pipe(response);
+    verifyToken(request.query.token)
+        .then(() => {
+            requester('http://localhost:30028/git-user-get-user').pipe(response);
+        })
+        .catch(ex => {
+            console.log('COULD NOT VERIFY TOKEN');
+            response.send(ex);
+        })
+
 });
 
 router.get('/git-user-get-user-repos', function(request, response) {
