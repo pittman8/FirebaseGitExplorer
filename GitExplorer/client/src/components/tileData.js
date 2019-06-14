@@ -33,6 +33,12 @@ export const gitItems = (
             </ListItemIcon>
             <ListItemText primary="Firebase Logout" />
         </ListItemLink>
+        <ListItemLink button component={Link} to="/write-user">
+            <ListItemIcon>
+                <DraftsIcon />
+            </ListItemIcon>
+            <ListItemText primary="Firebase Write" />
+        </ListItemLink>
         <ListItem button component={Link} to="/get-user">
             <ListItemIcon>
                 <InboxIcon />

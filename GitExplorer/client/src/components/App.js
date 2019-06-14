@@ -12,6 +12,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from './elf-styles';
 import { FirebaseLogout } from './FirebaseLogout';
+import FirebaseWrite  from './FirebaseWrite';
 
 class App extends Component {
     constructor(props) {
@@ -218,7 +219,13 @@ class App extends Component {
                             />
                         )}
                     />
-                    <Route path="/firebaseLogout" component={FirebaseLogout} />
+                    <Route path="/firebaseLogout" component={ FirebaseLogout } />
+                    <Route
+                        path="/write-user"
+                        render={props => (
+                            <FirebaseWrite {...props}/>
+                        )}
+                    />
                 </div>
                 <br />
                 <p align="center">
