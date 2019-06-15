@@ -6,7 +6,7 @@ const { verifyToken } = require('./verify-db');
 router.get('/you-rang', function(request, response) {
     verifyToken(request.query.token)
         .then(() => {
-            requester('http://localhost:30029/git-gist-you-rang').pipe(
+            requester('http://localhost:30029/you-rang').pipe(
                 response
             );
         })
@@ -17,7 +17,7 @@ router.get('/you-rang', function(request, response) {
 });
 
 router.get('/get-gist-list', function(request, response) {
-    requester('http://localhost:30029/git-gist-get-gist-list').pipe(response);
+    requester('http://localhost:30029/get-gist-list').pipe(response);
 });
 
 module.exports = router;

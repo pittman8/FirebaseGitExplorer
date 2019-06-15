@@ -40,10 +40,9 @@ router.get('/you-rang', function(request, response) {
     console.log('TEST USER CALLED', request.query);
     const token = request.query.token;
     verifyToken(token)
-        .then(() => {
-            requester('http://localhost:30028/git-user-you-rang').pipe(
-                response
-            );
+        .then((decodedToken) => {
+            requester('http://localhost:30028/you-rang?name=' + decodedToken.name)
+                .pipe(response);
         })
         .catch(ex => {
             console.log('COULD NOT VERIFY TOKEN');
@@ -66,7 +65,7 @@ router.get('/you-rang', function(request, response) {
 router.get('/get-user', function(request, response) {
     verifyToken(request.query.token)
         .then(() => {
-            requester('http://localhost:30028/git-user-get-user').pipe(
+            requester('http://localhost:30028/get-user').pipe(
                 response
             );
         })
@@ -77,7 +76,7 @@ router.get('/get-user', function(request, response) {
 });
 
 router.get('/get-repos', function(request, response) {
-    requester('http://localhost:30028/git-user-get-user-repos').pipe(response);
+    requester('http://localhost:30028/get-repos').pipe(response);
 });
 
 module.exports = router;
