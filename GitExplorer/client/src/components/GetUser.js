@@ -32,7 +32,7 @@ class GetUser extends Component {
                             <Button
                                 variant="contained"
                                 color="primary"
-                                data-url="/users/git-user-you-rang"
+                                data-url="/get-user/you-rang"
                                 onClick={this.props.queryServerLogin}
                             >
                                 Ring Get User
@@ -77,7 +77,7 @@ class GetUser extends Component {
                             <Button
                                 variant="contained"
                                 color="primary"
-                                data-url="/users/git-user-get-user"
+                                data-url="/get-user/get-user"
                                 onClick={this.props.queryServerLogin}
                             >
                                 Get User

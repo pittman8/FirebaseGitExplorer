@@ -3,7 +3,7 @@ var router = express.Router();
 const requester = require('request');
 const { verifyToken } = require('./verify-db');
 
-router.get('/qux-you-rang', function(request, response) {
+router.get('/you-rang', function(request, response) {
     console.log('TEST QUX CALLED', request.query);
     verifyToken(request.query.token)
         .then(() => {

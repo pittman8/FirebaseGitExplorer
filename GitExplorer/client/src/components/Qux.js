@@ -31,7 +31,7 @@ class Qux extends Component {
                         <Button
                             variant="contained"
                             color="primary"
-                            data-url="/qux/qux-you-rang"
+                            data-url="/qux/you-rang"
                             onClick={this.props.queryServerLogin}
                         >
                             Ring Qux

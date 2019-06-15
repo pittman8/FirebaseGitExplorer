@@ -10,7 +10,6 @@ var api = require('./routes/api');
 var getGist = require('./routes/get-gist');
 var getUser = require('./routes/get-user');
 var qux = require('./routes/qux');
-var writeUser = require('./routes/write-user');
 
 var app = express();
 
@@ -30,7 +29,6 @@ app.use('/api', api);
 app.use('/get-user', getUser);
 app.use('/get-gist', getGist);
 app.use('/qux', qux);
-app.use('/write-user', writeUser);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

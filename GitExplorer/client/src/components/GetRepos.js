@@ -60,7 +60,7 @@ class GetRepos extends Component {
                             <Button
                                 variant="contained"
                                 color="primary"
-                                data-url="/users/git-user-you-rang"
+                                data-url="/get-user/you-rang"
                                 onClick={this.props.queryServerLogin}
                             >
                                 Ring Git User
@@ -151,7 +151,7 @@ class GetRepos extends Component {
                                 variant="contained"
                                 color="primary"
                                 className={classes.button}
-                                data-url="/users/git-user-get-user-repos"
+                                data-url="/get-user/get-repos"
                                 onClick={event =>
                                     this.props.fetchRepoList(event)
                                 }
@@ -163,7 +163,7 @@ class GetRepos extends Component {
                                 variant="contained"
                                 color="primary"
                                 className={classes.button}
-                                data-url="/users/git-user-get-user-repos"
+                                data-url="/get-user/get-repos"
                                 onClick={event =>
                                     this.props.fetchRepoList(event)
                                 }
@@ -175,7 +175,7 @@ class GetRepos extends Component {
                                 variant="contained"
                                 color="primary"
                                 className={classes.button}
-                                data-url="/users/git-user-get-user-repos"
+                                data-url="/get-user/get-repos"
                                 onClick={event =>
                                     this.props.fetchRepoList(event)
                                 }
