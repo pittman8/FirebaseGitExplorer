@@ -144,6 +144,8 @@ class GetGist extends Component {
                                 id="writeGists"
                                 variant="contained"
                                 color="primary"
+                                data-url="/get-gist/get-gist-list"
+                                onClick={this.props.queryServerLogin}
                             >
                                 Write Gists
                             </Button>
