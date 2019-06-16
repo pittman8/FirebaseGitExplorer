@@ -6,9 +6,7 @@ const { verifyToken } = require('./verify-db');
 router.get('/you-rang', function(request, response) {
     verifyToken(request.query.token)
         .then(() => {
-            requester('http://localhost:30029/you-rang').pipe(
-                response
-            );
+            requester('http://localhost:30029/you-rang').pipe(response);
         })
         .catch(ex => {
             console.log('COULD NOT VERIFY TOKEN');

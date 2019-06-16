@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-let db = null;
-
 /* GET home page. */
 router.get('/', function(req, res) {
     'use strict';

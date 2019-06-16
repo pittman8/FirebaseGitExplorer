@@ -14,7 +14,7 @@ router.get('/foo', function(request, response) {
     console.log('Foo called:\n' + JSON.stringify(message, null, 4));
     verifyToken(request.query.token)
         .then(() => {
-            requester('http://localhost:30026/api/foo').pipe(response);
+            requester('http://localhost:30026/foo').pipe(response);
         })
         .catch(ex => {
             console.log('COULD NOT VERIFY TOKEN');

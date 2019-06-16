@@ -116,13 +116,28 @@ class App extends Component {
         });
     };
 
+    makeParams = params => {
+        var esc = encodeURIComponent;
+        return (
+            '?' +
+            Object.keys(params)
+                .map(k => esc(k) + '=' + esc(params[k]))
+                .join('&')
+        );
+    };
+
     queryServerLogin = event => {
-        const url = event.currentTarget.dataset.url;
+        let url = event.currentTarget.dataset.url;
         this.getFirebaseToken()
             .then(response => {
                 console.log('TOKEN', response.token);
-                // Send token to your backend via HTTPS
-                fetch(url + '?token=' + response.token)
+                url =
+                    url +
+                    this.makeParams({
+                        token: response.token,
+                        test: 'testParam'
+                    });
+                fetch(url)
                     .then(function(response) {
                         return response.json();
                     })
@@ -218,7 +233,7 @@ class App extends Component {
                             />
                         )}
                     />
-                    <Route path="/firebaseLogout" component={ FirebaseLogout } />
+                    <Route path="/firebaseLogout" component={FirebaseLogout} />
                 </div>
                 <br />
                 <p align="center">

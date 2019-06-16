@@ -38,11 +38,11 @@ router.get('/', function(req, res) {
     });
 });
 
-router.get('/git-gist-you-rang', (request, response) => {
+router.get('/you-rang', (request, response) => {
     response.send({ result: 'you rang', server: 'git-gist' });
 });
 
-router.get('/git-gist-get-gist-list', function(request, response) {
+router.get('/get-gist-list', function(request, response) {
     debug('GET BASIC LIST CALLED');
     let gh = getGitHub();
     const me = gh.getUser();

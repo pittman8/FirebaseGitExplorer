@@ -33,7 +33,7 @@ class TestRoutes extends Component {
                         <Button
                             variant="contained"
                             color="primary"
-                            data-url="/api/foo"
+                            data-url="/test-routes/api/foo"
                             onClick={this.props.queryServerLogin}
                         >
                             Test Foo Route
