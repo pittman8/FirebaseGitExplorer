@@ -139,6 +139,14 @@ class GetGist extends Component {
                             >
                                 Next
                             </Button>
+                            <br />
+                            <Button
+                                id="writeGists"
+                                variant="contained"
+                                color="primary"
+                            >
+                                Write Gists
+                            </Button>
                         </Paper>
                     </Grid>
                 </Grid>
