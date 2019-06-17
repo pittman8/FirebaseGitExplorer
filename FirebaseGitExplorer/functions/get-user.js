@@ -28,7 +28,7 @@ const writeData = (decodedToken, db) => {
             'WRITE DATA CALLED:\n' + JSON.stringify(decodedToken, null, 4)
         );
         db.collection('user')
-            .doc('uid')
+            .doc(decodedToken.uid)
             .set({
                 name: decodedToken.name,
                 email: decodedToken.email,

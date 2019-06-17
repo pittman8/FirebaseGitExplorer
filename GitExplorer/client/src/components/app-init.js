@@ -21,6 +21,7 @@ export const appInit = {
             ownerLogin: 'unknown1',
             gitPullUrl: 'unknown1',
             files: 'unknown1',
+            htmlUrl: 'unknown1',
             avatarUrl:
                 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Face-smile-big.svg/1200px-Face-smile-big.svg.png'
         },
@@ -30,6 +31,7 @@ export const appInit = {
             ownerLogin: 'unknown2',
             gitPullUrl: 'unknown2',
             files: 'unknown2',
+            htmlUrl: 'unknown2',
             avatarUrl:
                 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Face-smile-big.svg/1200px-Face-smile-big.svg.png'
         }

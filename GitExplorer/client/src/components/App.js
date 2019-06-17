@@ -12,6 +12,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from './elf-styles';
 import { FirebaseLogout } from './FirebaseLogout';
+import WriteGists from './WriteGists';
 
 class App extends Component {
     constructor(props) {
@@ -230,6 +231,15 @@ class App extends Component {
                                 gistList={this.state.gistList}
                                 result={this.state.result}
                                 server={this.state.server}
+                            />
+                        )}
+                    />
+                    <Route
+                        path="/write-gists"
+                        render={props => (
+                            <WriteGists
+                                {...props}
+                                queryServerLogin={this.queryServerLogin}
                             />
                         )}
                     />

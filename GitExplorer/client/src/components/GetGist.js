@@ -139,16 +139,6 @@ class GetGist extends Component {
                             >
                                 Next
                             </Button>
-                            <br />
-                            <Button
-                                id="writeGists"
-                                variant="contained"
-                                color="primary"
-                                data-url="/get-gist/get-gist-list"
-                                onClick={this.props.queryServerLogin}
-                            >
-                                Write Gists
-                            </Button>
                         </Paper>
                     </Grid>
                 </Grid>

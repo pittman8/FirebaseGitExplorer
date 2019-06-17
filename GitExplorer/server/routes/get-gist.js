@@ -18,4 +18,8 @@ router.get('/get-gist-list', function(request, response) {
     requester('http://localhost:30029/get-gist-list').pipe(response);
 });
 
+router.get('/write-gists', (request, response) => {
+    response.send({ result: 'you rang', server: 'git-gist' });
+});
+
 module.exports = router;

@@ -51,6 +51,12 @@ export const gitItems = (
             </ListItemIcon>
             <ListItemText primary="Get Gist" />
         </ListItem>
+        <ListItem button component={Link} to="/write-gists">
+            <ListItemIcon>
+                <SendIcon />
+            </ListItemIcon>
+            <ListItemText primary="Write Gists" />
+        </ListItem>
     </div>
 );
 
