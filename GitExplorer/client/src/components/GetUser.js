@@ -94,8 +94,8 @@ GetUser.propTypes = {
     queryServerLogin: PropTypes.func,
     body: PropTypes.object,
     classes: PropTypes.object.isRequired,
-    result: PropTypes.object.isRequired,
-    server: PropTypes.object.isRequired
+    result: PropTypes.string,
+    server: PropTypes.string
 };
 
 export default withStyles(styles)(GetUser);

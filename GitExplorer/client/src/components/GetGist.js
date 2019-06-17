@@ -153,8 +153,8 @@ GetGist.propTypes = {
     fetchGistList: PropTypes.func,
     gistList: PropTypes.array,
     classes: PropTypes.object.isRequired,
-    result: PropTypes.object.isRequired,
-    server: PropTypes.object.isRequired
+    result: PropTypes.string,
+    server: PropTypes.object
 };
 
 export default withStyles(styles)(GetGist);

@@ -195,8 +195,8 @@ GetRepos.propTypes = {
     classes: PropTypes.object.isRequired,
     fetchRepoList: PropTypes.func,
     repoList: PropTypes.array,
-    result: PropTypes.object.isRequired,
-    server: PropTypes.object.isRequired
+    result: PropTypes.string,
+    server: PropTypes.object
 };
 
 export default withStyles(styles)(GetRepos);

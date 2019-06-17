@@ -47,7 +47,7 @@ describe('Sanity App Tests', () => {
         const wrapper = create();
         expect(wrapper.instance().setData).toBeDefined();
         expect(wrapper.instance().setGistList).toBeDefined();
-        expect(wrapper.instance().queryServer).toBeDefined();
+        expect(wrapper.instance().queryServerLogin).toBeDefined();
     });
 
     it('App.js includes the method setGistList', () => {
@@ -60,9 +60,9 @@ describe('Sanity App Tests', () => {
         expect(wrapper.instance().fetchGistList).toBeDefined();
     });
 
-    it('App.js includes the method queryServer', () => {
+    it('App.js includes the method queryServerLogin', () => {
         const wrapper = create();
-        expect(wrapper.instance().queryServer).toBeDefined();
+        expect(wrapper.instance().queryServerLogin).toBeDefined();
     });
 
     it('checks if App.js exists', () => {
