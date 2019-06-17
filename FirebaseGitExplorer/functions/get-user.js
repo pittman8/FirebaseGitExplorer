@@ -61,7 +61,47 @@ const readData = (docName, db) => {
     });
 };
 
+const writeBatchData = (results, db) => {
+    console.log('WRITE-BATCH-DATA CALLED', results);
+    return new Promise(function(resolve, reject) {
+        const batch = db.batch();
 
+        results.forEach(repo => {
+            console.log('ITEM', repo);
+            try {
+                let itemsRef = db.collection('repository').doc(repo.id);
+                batch.set(itemsRef, repo);
+            } catch (ex) {
+                console.log('ITEM2', ex);
+            }
+        });
+
+        console.log('READY TO COMMIT');
+        batch
+            .commit()
+            .then(dbData => {
+                console.log('SUCCESS');
+                resolve({ result: 'success', dbData: dbData });
+            })
+            .catch(function(error) {
+                console.log('ERROR', error);
+                reject({ 'error: ': error, text: 'error writing document' });
+            });
+    });
+};
+
+// function readSnapshot(db) {
+//     return new Promise(function(resolve, reject) {
+//         db.collection('gists')
+//             .get()
+//             .then(snapshot => {
+//                 resolve(snapshot);
+//             })
+//             .catch(ex => {
+//                 reject(ex);
+//             });
+//     });
+// }
 
 router.get('/you-rang', (request, response) => {
     console.log('TEST VERIFY CALLED', request.query);
@@ -122,5 +162,49 @@ router.get('/get-repos', (request, response) => {
             response.send({ result: data });
         });
 });
+
+router.get('/write-repos', (request, response) => {
+    const token = request.query.token;
+    verifyToken(token)
+        .then(function() {
+            myOctokit.repos
+                .list({
+                    type: 'all'
+                })
+                .then(({ data }) => {
+                    if (!db) {
+                        db = init();
+                    }
+
+                    writeBatchData(result, db)
+                        .then(function() {
+                            response.send({ result: data });
+                        })
+                        .catch(ex => {
+                            response.send(ex);
+                        });
+                });
+
+        })
+        .catch(function(err) {
+            debug('USER Promise Rejected', err);
+            response.status(500).send({ result: err });
+        });
+});
+
+// router.get('/read-repos', (req, res) => {
+//     if (!db) {
+//         db = init();
+//     }
+//
+//     readSnapshot(db)
+//         .then(snapshot => {
+//             const data = snapshot.docs.map(doc => doc.data());
+//             res.send(data);
+//         })
+//         .catch(ex => {
+//             res.send(ex);
+//         });
+// });
 
 module.exports = router;

@@ -13,6 +13,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { styles } from './elf-styles';
 import { FirebaseLogout } from './FirebaseLogout';
 import WriteGists from './WriteGists';
+import WriteRepos from "./WriteRepos";
 
 class App extends Component {
     constructor(props) {
@@ -238,6 +239,15 @@ class App extends Component {
                         path="/write-gists"
                         render={props => (
                             <WriteGists
+                                {...props}
+                                queryServerLogin={this.queryServerLogin}
+                            />
+                        )}
+                    />
+                    <Route
+                        path="/write-repos"
+                        render={props => (
+                            <WriteRepos
                                 {...props}
                                 queryServerLogin={this.queryServerLogin}
                             />

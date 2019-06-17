@@ -7,6 +7,7 @@ import DraftsIcon from '@material-ui/icons/Drafts';
 import StarIcon from '@material-ui/icons/Star';
 import SendIcon from '@material-ui/icons/Send';
 import HomeIcon from '@material-ui/icons/Home';
+import UserIcon from '@material-ui/icons/VerifiedUser';
 import { Link } from 'react-router-dom';
 
 function ListItemLink(props) {
@@ -35,7 +36,7 @@ export const gitItems = (
         </ListItemLink>
         <ListItem button component={Link} to="/get-user">
             <ListItemIcon>
-                <InboxIcon />
+                <UserIcon />
             </ListItemIcon>
             <ListItemText primary="Get User Info" />
         </ListItem>
@@ -44,6 +45,12 @@ export const gitItems = (
                 <InboxIcon />
             </ListItemIcon>
             <ListItemText primary="Get Repos" />
+        </ListItem>
+        <ListItem button component={Link} to="/write-repos">
+            <ListItemIcon>
+                <InboxIcon />
+            </ListItemIcon>
+            <ListItemText primary="Write Repos" />
         </ListItem>
         <ListItem button component={Link} to="/get-gist">
             <ListItemIcon>
