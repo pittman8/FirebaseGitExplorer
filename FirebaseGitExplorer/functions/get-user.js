@@ -43,6 +43,26 @@ const writeData = (decodedToken, db) => {
     });
 };
 
+const readData = (docName, db) => {
+    return new Promise(function (resolve, reject) {
+        var docRef = db.collection("user").doc(docName);
+        console.log('READ DATA CALLED:\n' + JSON.stringify(docName, null, 4));
+        docRef.get()
+            .then(function (doc) {
+                if (doc.exists) {
+                    resolve({"documentData": doc.data(), result: 'success', server: 'git-user'});
+                } else {
+                    resolve({documentData: "No such document!"});
+                }
+            })
+            .catch(function (error) {
+                reject({error: error});
+            });
+    });
+};
+
+
+
 router.get('/you-rang', (request, response) => {
     console.log('TEST VERIFY CALLED', request.query);
     const token = request.query.token;
@@ -55,7 +75,10 @@ router.get('/you-rang', (request, response) => {
             writeData(decodedToken, db)
                 .then(result => {
                     console.log('WRITE RESULT', result);
-                    response.send(result);
+                    readData(decodedToken.uid, db)
+                        .then(result => {
+                            response.send(result);
+                        })
                 })
                 .catch(ex => {
                     response.send(ex);
