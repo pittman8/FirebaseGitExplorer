@@ -10,7 +10,7 @@ configure({ adapter: new Adapter() });
 
 const userWrapper = shallow(
     <GetUser
-        queryServer={() => {}}
+        queryServerLogin={() => {}}
         result={'success'}
         body={{
             login: 'unknown',
@@ -22,7 +22,7 @@ const userWrapper = shallow(
 
 const repoWrapper = shallow(
     <GetRepos
-        queryServer={() => {}}
+        queryServerLogin={() => {}}
         fetchRepoList={() => {}}
         result={'success'}
         repoList={appInit.repoList}
@@ -34,7 +34,7 @@ describe('GetUser Tests', function() {
         const div = document.createElement('div');
         ReactDOM.render(
             <GetUser
-                queryServer={() => {}}
+                queryServerLogin={() => {}}
                 result={'success'}
                 body={{
                     login: 'unknown',

@@ -6,15 +6,13 @@ import ReactDOM from 'react-dom';
 configure({ adapter: new Adapter() });
 import { shallow } from 'enzyme';
 import Typography from '@material-ui/core/Typography';
-//import App from '../components/App';
-//import { appInit } from '../components/app-init';
 
 describe('GetGist Tests', function() {
     it('renders without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(
             <GetGist
-                queryServer={() => {}}
+                queryServerLogin={() => {}}
                 fetchGistList={() => {}}
                 result={'success'}
                 gistList={[{ id: 3 }]}
@@ -27,7 +25,7 @@ describe('GetGist Tests', function() {
     it('renders the component header', () => {
         const wrapper = shallow(
             <GetGist
-                queryServer={() => {}}
+                queryServerLogin={() => {}}
                 fetchGistList={() => {}}
                 result={'success'}
                 gistList={[{ id: 3 }]}
@@ -42,7 +40,7 @@ describe('GetGist Tests', function() {
     it('found WithStyles', () => {
         const wrapper = shallow(
             <GetGist
-                queryServer={() => {}}
+                queryServerLogin={() => {}}
                 fetchGistList={() => {}}
                 result={'success'}
                 gistList={[{ id: 3 }]}
@@ -54,7 +52,7 @@ describe('GetGist Tests', function() {
     it('tests prev button click', () => {
         const wrapper = shallow(
             <GetGist
-                queryServer={() => {}}
+                queryServerLogin={() => {}}
                 fetchGistList={() => {}}
                 result={'success'}
                 gistList={[{ id: 1 }, { id: 2 }, { id: 3 }]}
@@ -70,7 +68,7 @@ describe('GetGist Tests', function() {
     it('tests next button click', () => {
         const wrapper = shallow(
             <GetGist
-                queryServer={() => {}}
+                queryServerLogin={() => {}}
                 fetchGistList={() => {}}
                 result={'success'}
                 gistList={[{ id: 1 }, { id: 2 }, { id: 3 }]}

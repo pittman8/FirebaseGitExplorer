@@ -1,15 +1,14 @@
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
 import { configure, shallow } from 'enzyme';
-import { Qux } from '../components/Qux';
-import { appInit } from '../components/app-init';
+import Qux from '../components/Qux';
 import ReactDOM from 'react-dom';
 configure({ adapter: new Adapter() });
 
 describe('Qux Tests', function() {
     it('renders without crashing', () => {
         const div = document.createElement('div');
-        ReactDOM.render(<Qux appInit={appInit} />, div);
+        ReactDOM.render(<Qux queryServerLogin={() => {}} />, div);
         ReactDOM.unmountComponentAtNode(div);
     });
 
