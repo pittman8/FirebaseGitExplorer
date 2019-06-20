@@ -5,7 +5,7 @@ let loggedIn = false;
 
 function init() {
     loggedIn = true;
-    if (admin.apps.length === 0) {
+    if (!admin.apps.length) {
         admin.initializeApp({
             credential: admin.credential.cert(credentialLoad)
         });
